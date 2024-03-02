@@ -37,9 +37,9 @@
 Notes by Alex Luedtke <br> Transcribed by Jess Phillips</center>
 <br>
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: {Augment: {Definitions: {macros: {footnotesize: ['SetSize', .9]}}  // 90% of normal
-});
+  MathJax.Hub.Config({
+    TeX: {Augment: {Definitions: {macros: {footnotesize: ['SetSize', .9]}}  // 90% of normal
+  });
 </script>
 <ul>
 <li><a href="#stat-582-advanced-theory-of-statistical-inference-ii">STAT 582: Advanced Theory of Statistical Inference II</a>
@@ -95,9 +95,8 @@ MathJax.Hub.Config({
 <li>E.g., <span class="mathjax-exps">$P=Q^n$</span> and <span class="mathjax-exps">$\Psi(P) = \int x \, dQ(x)$</span>.</li>
 <li>E.g., <span class="mathjax-exps">$P=Q^n$</span> and <span class="mathjax-exps">$\Psi(P) = E_Q[Y \mid X=x_0]$</span>.</li>
 </ul>
-<p>If <span class="mathjax-exps">$L(a,P) = \{ a-\Phi(P) \}^2$</span>, then<br>
-</p><div class="mathjax-exps">$$R(T,P) = \int \{ T(w) - \Psi(P) \}^2 dP(w)$$</div><p></p>
-<p>is the <strong>mean-squared error (MSE)</strong>.</p>
+<p>If <span class="mathjax-exps">$L(a,P) = \{ a-\Phi(P) \}^2$</span>, then</p>
+<p class="math"></p><div class="mathjax-exps">$$R(T,P) = \int \{ T(w) - \Psi(P) \}^2 dP(w) $$</div><p></p><p>is the <strong>mean-squared error (MSE)</strong>.</p>
 </div>
 <br>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#0000ff; padding:0.75em; padding-bottom: 0em;">
@@ -124,11 +123,11 @@ MathJax.Hub.Config({
 <p>Recall from STAT 581 that the performance of a rule <span class="mathjax-exps">$T$</span> can be judged by its <strong>maximal risk</strong>:<br>
 </p><div class="mathjax-exps">$$\sup_{P\in\mathcal{P}} R(T,P).$$</div><p></p>
 <p>A minimax estimator (decision rule) minimizes the maximal risk.</p>
-<p><u><strong>Challenge</strong>:</u> Deriving a minimax estimator is often an <span class="mathjax-exps">$\red{\textbf{intractable problem}}$</span>.<br>
+<p><u><strong>Challenge</strong>:</u> Deriving a minimax estimator is often an <span class="mathjax-exps">$\textcolor{red}{\textbf{intractable problem}}$</span>.<br>
 <br></p>
 <h3 id="minimax-rate-optimality">Minimax rate optimality </h3>
 <p><u>High level (simplified setting):</u> If the minimax risk satisfies the following for some <span class="mathjax-exps">$C_1&gt;0$</span> and <span class="mathjax-exps">$\alpha&gt;0$</span>:<br>
-</p><div class="mathjax-exps">$$\underbrace{\inf_{T} \sup_{Q^n} R(T, Q^n)}_{\blue{\text{``minimax risk"}}} = C_1 n^{-\alpha}$$</div><p></p>
+</p><div class="mathjax-exps">$$\underbrace{\inf_{T} \sup_{Q^n} R(T, Q^n)}_{\textcolor{blue}{\text{``minimax risk"}}} = C_1 n^{-\alpha}$$</div><p></p>
 <p>then we will call an estimator sequence <span class="mathjax-exps">$(T_n)_{n=1}^{\infty}$</span> minimax rate optimal if<br>
 </p><div class="mathjax-exps">$$\sup_{Q^n} R(T_n, Q^n) = C_2 n^{-\alpha}$$</div><p></p>
 <p>for some <span class="mathjax-exps">$C_2&gt;0$</span>.</p>
@@ -141,12 +140,12 @@ MathJax.Hub.Config({
 <p>i.e., the problem is not impossible. We'll focus on these problems here.</p>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#42801f; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Definition.</strong> A sequence of rules <span class="mathjax-exps">$(T_n)_{n=1}^{\infty}$</span> is called <strong>minimax rate optimal</strong> if<br>
-</p><div class="mathjax-exps">$$\lim_{n\to\infty} \frac{\displaystyle\footnotesize\inf_{T\in\mathcal{T}_n} \sup_{Q\in\mathcal{Q}} R(T,Q^n)}{\displaystyle\footnotesize\sup_{Q\in\mathcal{Q}} R(T_n, Q^n)} &gt; 0. \hspace{3em} \left[ \scriptsize \purple{\frac{n^{-1}}{n^{-1/2}} = n^{-1/2} \to 0} \right] \tag{$\orange{\bigstar}$}$$</div><p></p>
+</p><div class="mathjax-exps">$$\lim_{n\to\infty} \frac{\displaystyle\small{\inf_{T\in\mathcal{T}_n} \sup_{Q\in\mathcal{Q}} R(T,Q^n)}}{\displaystyle\small{\sup_{Q\in\mathcal{Q}} R(T_n, Q^n)}} &gt; 0. \hspace{3em} \left[ \scriptsize \textcolor{purple}{\frac{n^{-1}}{n^{-1/2}} = n^{-1/2} \to 0} \right] \tag{$\textcolor{orange}{\bigstar}$}$$</div><p></p>
 <p>Put another way<br>
 </p><div class="mathjax-exps">$$\sup_{Q\in\mathcal{Q}} R(T_n, Q^n) = O \left( \inf_{T\in\mathcal{T}_n} \sup_{Q\in\mathcal{Q}} R(T, Q^n) \right) .$$</div><p></p>
 </div>
 <br>
-<p><u><strong>Problem</strong>:</u> We can't typically derive the numerator or denominator of <span class="mathjax-exps">$(\orange{\bigstar})$</span>!</p>
+<p><u><strong>Problem</strong>:</u> We can't typically derive the numerator or denominator of <span class="mathjax-exps">$(\textcolor{orange}{\bigstar})$</span>!</p>
 <p><u><strong>Solution</strong>:</u> Find bounds on them.</p>
 <p>Later in thise course, we'll fine <span class="mathjax-exps">$(U_n)_{n=1}^{\infty}$</span> so that<br>
 </p><div class="mathjax-exps">$$\sup_{Q\in\mathcal{Q}} R(T_n, Q^n) \leq U_n$$</div><p></p>
@@ -154,7 +153,7 @@ MathJax.Hub.Config({
 <p>In this chapter, we'll find <span class="mathjax-exps">$(L_n)_{n=1}^{\infty}$</span> such that<br>
 </p><div class="mathjax-exps">$$\inf_{T\in\mathcal{T}_n} \sup_{Q\in\mathcal{Q}} R(T, Q^n) \geq \!\!\!\!\!\!\!\!\!\underbrace{L_n}_{\substack{\text{lower bound} \\ \text{on the minimax} \\ \text{risk}}}\!\!\!\!\!\!\!\!\!.$$</div><p></p>
 <p>Once we have these two bounds,<br>
-</p><div class="mathjax-exps">$$\frac{\displaystyle\footnotesize\inf_{T\in\mathcal{T}_n} \sup_{Q} R(T,Q^n)}{\displaystyle\footnotesize\sup_{Q} R(T_n, Q^n)} \geq \frac{L_n}{U_n}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\frac{\displaystyle\small{\inf_{T\in\mathcal{T}_n} \sup_{Q} R(T,Q^n)}}{\displaystyle\small{\sup_{Q} R(T_n, Q^n)}} \geq \frac{L_n}{U_n}.$$</div><p></p>
 <p>Hence, to show <span class="mathjax-exps">$(\bigstar)$</span>, it's enough to show<br>
 </p><div class="mathjax-exps">$$\liminf_{n\to\infty} \frac{L_n}{U_n} &gt;0.$$</div><p></p>
 <p>In the remainder of this chapter, we'll focus on deriving lower bounds <span class="mathjax-exps">$L$</span> on the minimax risk:<br>
@@ -188,9 +187,9 @@ MathJax.Hub.Config({
 <h3 id="method--1-for-deriving-minimax-lower-bounds">Method # 1 for deriving minimax lower bounds </h3>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#43b7d1; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Theorem (Le Cam).</strong> Let <span class="mathjax-exps">$R$</span> be a risk function defined according to some nonnegative loss <span class="mathjax-exps">$L$</span>. For any <span class="mathjax-exps">$P_1, P_2 \in\mathcal{P}$</span>,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \inf_T \sup_P R(T,P) &amp;\geq \frac{1}{2} \blue{d(P_1, P_2)} \red{\Vert p_1 \wedge p_2 \Vert_1} \\          &amp;\geq \frac{1}{4} \blue{d(P_1, P_2)} \exp [-\green{KL(P_1,P_2)}] \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \inf_T \sup_P R(T,P) &amp;\geq \frac{1}{2} \textcolor{blue}{d(P_1, P_2)} \textcolor{red}{\Vert p_1 \wedge p_2 \Vert_1} \\          &amp;\geq \frac{1}{4} \textcolor{blue}{d(P_1, P_2)} \exp [-\textcolor{green}{KL(P_1,P_2)}] \end{align*}$$</div><p></p>
 <p>where<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \blue{d(P_1,P_2)} &amp;= \inf_{a\in\mathcal{A}} [L(a,P_1) + L(a,P_2)], \hspace{7.958em}\text{(discrepancy)} \\ \red{\Vert p_1 \wedge p_2 \Vert_1} &amp;= \int \min \left\{ \frac{dP_1}{d\nu}(w),  \frac{dP_2}{d\nu}(w)\right\}, \hspace{6.3em} \text{(testing affinity)} \\ \green{KL(P_1,P_2)} &amp;= \begin{cases}     \int \log \left[ \frac{dP_1}{dP_2} (w) \right] dP_1(w), &amp; \text{if } P_1 \ll P_2, \\     +\infty, &amp; \text{otherwise} \end{cases} \hspace{2em} \text{(KL divergence)} \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \textcolor{blue}{d(P_1,P_2)} &amp;= \inf_{a\in\mathcal{A}} [L(a,P_1) + L(a,P_2)], \hspace{7.958em}\text{(discrepancy)} \\ \textcolor{red}{\Vert p_1 \wedge p_2 \Vert_1} &amp;= \int \min \left\{ \frac{dP_1}{d\nu}(w),  \frac{dP_2}{d\nu}(w)\right\}, \hspace{6.3em} \text{(testing affinity)} \\ \textcolor{green}{KL(P_1,P_2)} &amp;= \begin{cases}     \int \log \left[ \frac{dP_1}{dP_2} (w) \right] dP_1(w), &amp; \text{if } P_1 \ll P_2, \\     +\infty, &amp; \text{otherwise} \end{cases} \hspace{2em} \text{(KL divergence)} \end{align*}$$</div><p></p>
 </div>
 <br>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#000000; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
@@ -217,9 +216,10 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#000000; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Remark 2.</strong> Understanding testing affinity.</p>
 <p>Statistically, we can show that, give a draw <span class="mathjax-exps">$W$</span> from <span class="mathjax-exps">$P_j$</span>, <span class="mathjax-exps">$j\in\{ 1,2 \}$</span> unknown, the difficulty of identifying <span class="mathjax-exps">$j$</span> is characterized by <span class="mathjax-exps">$\Vert p_1 \wedge p_2 \Vert_1$</span>.</p>
-<p><img src="chapter1\figures\IMG_0348.jpg" alt="drawings of p_1(w) and p_2(w)"></p>
+<p>![drawings of p_1(w) and p_2(w)](/jessica-phillips/img<br>
+/IMG_0348.jpg)</p>
 <p>Note that<br>
-</p><div class="mathjax-exps">$$\purple{ \Vert p_1 \wedge p_2 \Vert_1 = \int \min \{ p_1(w), p_2(w) \} d \nu(w)}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{purple}{ \Vert p_1 \wedge p_2 \Vert_1 = \int \min \{ p_1(w), p_2(w) \} d \nu(w)}.$$</div><p></p>
 </div>
 <br>
 <ul>
@@ -229,10 +229,10 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <p>We'll quantify performance of <span class="mathjax-exps">$T$</span> via misclassification error:<br>
 </p><div class="mathjax-exps">$$\mathcal{E}(T) = \underbrace{E_{P_1}[I\{ T(W) = 2 \}]}_{\text{error under } P_1} + \underbrace{E_{P_2}[I\{ T(W) = 1 \}]}_{\text{error under } P_2}.$$</div><p></p>
 <p>Observe that, for any <span class="mathjax-exps">$T$</span>,<br>
-</p><div class="mathjax-exps">$$\begin{align*}   \mathcal{E}(T) &amp;= \int [p_1(w) I\{ T(w) = 2 \} + p_2(w) I\{ T(w) = 1 \}] d\nu(w) \\       &amp;\geq \int \min \{ p_1(w), p_2(w) \} [\underbrace{I\{ T(w) = 2 \} + I\{ T(w) = 1 \}}_{\blue{=1}}] d\nu(w) \\       &amp;= \Vert p_1 \wedge p_2 \Vert_1. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}   \mathcal{E}(T) &amp;= \int [p_1(w) I\{ T(w) = 2 \} + p_2(w) I\{ T(w) = 1 \}] d\nu(w) \\       &amp;\geq \int \min \{ p_1(w), p_2(w) \} [\underbrace{I\{ T(w) = 2 \} + I\{ T(w) = 1 \}}_{\textcolor{blue}{=1}}] d\nu(w) \\       &amp;= \Vert p_1 \wedge p_2 \Vert_1. \end{align*}$$</div><p></p>
 <p>The lower bound is achieved by<br>
 </p><div class="mathjax-exps">$$T^\star(w) = \argmax_{j} p_j(w).$$</div><p></p>
-<p><strong>Note:</strong> <span class="mathjax-exps">$\blue{\mathcal{E}(T^\star) = \Vert p_1 \wedge p_2 \Vert_1}$</span>.</p>
+<p><strong>Note:</strong> <span class="mathjax-exps">$\textcolor{blue}{\mathcal{E}(T^\star) = \Vert p_1 \wedge p_2 \Vert_1}$</span>.</p>
 </li>
 </ul>
 <br>
@@ -243,7 +243,7 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <br><br>
 <p><strong>Proof (Le Cam).</strong> Let <span class="mathjax-exps">$\Pi$</span> denote a uniform prior over <span class="mathjax-exps">$\{ P_1, P_2 \}$</span>, that is, <span class="mathjax-exps">$\pi(P_1) = \pi(P_2) = \frac{1}{2}$</span>.</p>
 <p>For any rule <span class="mathjax-exps">$T$</span>,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     r(T, \Pi) &amp;= \sum_{j=1}^{2} \int L(T(w), P_j) \, p_j(w)\, d\nu(w) \; \pi(P_j) \\         &amp;= \frac{1}{2} \int \left[ \sum_{j=1}^2 L(T(w), P_j) \, p_j(w)\right] d\nu(w) \hspace{2em} (\text{since } \pi(P_j) = \tfrac{1}{2}) \\         &amp;\geq \frac{1}{2} \int \min \{ p_1(w), p_2(w) \} \left[ \sum_{j=1}^{2} L(T(w), P_j) \right] d\nu(w) \\         &amp;\geq \frac{1}{2} \int \min \{ p_1(w), p_2(w) \} \underbrace{\left[ \inf_{a\in\mathcal{A}} \sum_{j=1}^{2} L(a, P_j)\right] }_{\blue{:= d(P_1, P_2)}} d\nu(w) \\         &amp;= \frac{1}{2} d(P_1,P_2) \underbrace{\int \min \{ p_1(w), p_2(w) \} d\nu(w)}_{\blue{:= \Vert p_1 \wedge p_2 \Vert_1}}. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     r(T, \Pi) &amp;= \sum_{j=1}^{2} \int L(T(w), P_j) \, p_j(w)\, d\nu(w) \; \pi(P_j) \\         &amp;= \frac{1}{2} \int \left[ \sum_{j=1}^2 L(T(w), P_j) \, p_j(w)\right] d\nu(w) \hspace{2em} (\text{since } \pi(P_j) = \tfrac{1}{2}) \\         &amp;\geq \frac{1}{2} \int \min \{ p_1(w), p_2(w) \} \left[ \sum_{j=1}^{2} L(T(w), P_j) \right] d\nu(w) \\         &amp;\geq \frac{1}{2} \int \min \{ p_1(w), p_2(w) \} \underbrace{\left[ \inf_{a\in\mathcal{A}} \sum_{j=1}^{2} L(a, P_j)\right] }_{\textcolor{blue}{:= d(P_1, P_2)}} d\nu(w) \\         &amp;= \frac{1}{2} d(P_1,P_2) \underbrace{\int \min \{ p_1(w), p_2(w) \} d\nu(w)}_{\textcolor{blue}{:= \Vert p_1 \wedge p_2 \Vert_1}}. \end{align*}$$</div><p></p>
 <p>As <span class="mathjax-exps">$T$</span> was arbitrary,<br>
 </p><div class="mathjax-exps">$$\inf_{T} r(T,\Pi) \geq \frac{1}{2} d(P_1, P_2) \Vert p_1 \wedge p_2 \Vert_1.$$</div><p></p>
 <p>By Remark 1, this yields<br>
@@ -268,35 +268,36 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 </ul>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#43b7d1; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Theorem (Fano).</strong> Let <span class="mathjax-exps">$R$</span> be a risk function defined according to some nonnegative loss <span class="mathjax-exps">$L$</span>. For <span class="mathjax-exps">$N\geq 3$</span> and <span class="mathjax-exps">$P_1, P_2, \dots, P_N \in \mathcal{P}$</span> (the distributions contained in the model), define<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \eta &amp;:= \min_{j\neq k} d(P_j, P_k) = \min_{j\neq k} \inf_a [L(a, P_j) + L(a,P_k)], \\     \bar{P} &amp;:= \frac{1}{N} \sum_{j=1}^{N} P_j, \hspace{2em} \orange{(\text{uniform mixture of  $P_1,P_2,\dots,P_n$ })} \tag{$\orange{\bigstar}$}\\     K &amp;:= \max_{j\neq k} \text{KL}(P_j, P_k). \end{align*}$$</div><p></p>
-<p>(<strong>Note on <span class="mathjax-exps">$(\orange{\bigstar})$</span></strong> (see lecture notes screenshot))</p>
+</p><div class="mathjax-exps">$$\begin{align*}     \eta &amp;:= \min_{j\neq k} d(P_j, P_k) = \min_{j\neq k} \inf_a [L(a, P_j) + L(a,P_k)], \\     \bar{P} &amp;:= \frac{1}{N} \sum_{j=1}^{N} P_j, \hspace{2em} \textcolor{orange}{(\text{uniform mixture of  $P_1,P_2,\dots,P_n$ })} \tag{$\textcolor{orange}{\bigstar}$}\\     K &amp;:= \max_{j\neq k} \text{KL}(P_j, P_k). \end{align*}$$</div><p></p>
+<p>(<strong>Note on <span class="mathjax-exps">$(\textcolor{orange}{\bigstar})$</span></strong> (see lecture notes screenshot))</p>
 <p>It holds that<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \inf_T \sup_P R(T,P) &amp;\geq \frac{\eta}{2} \left[ 1 - \frac{\log(2) + \frac{1}{N} \sum_{j=1}^{N} \text{KL}(P_j, \bar{P})}{\log(N)} \right] \\         &amp;\geq \frac{\purple{\eta}}{2} \left[ 1 - \frac{\log(2) + \blue{\Kappa}}{\log(\red{N})} \right] \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \inf_T \sup_P R(T,P) &amp;\geq \frac{\eta}{2} \left[ 1 - \frac{\log(2) + \frac{1}{N} \sum_{j=1}^{N} \text{KL}(P_j, \bar{P})}{\log(N)} \right] \\         &amp;\geq \frac{\textcolor{purple}{\eta}}{2} \left[ 1 - \frac{\log(2) + \textcolor{blue}{\Kappa}}{\log(\textcolor{red}{N})} \right] \end{align*}$$</div><p></p>
 </div>
 <br>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#000000; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Remark.</strong> The <u>bound increases</u> when:</p>
 <ul>
-<li><u><span class="mathjax-exps">$\red{N}$</span> increases</u> and <span class="mathjax-exps">$\purple{\eta}$</span>, <span class="mathjax-exps">$\blue{\Kappa}$</span> remain fixed.</li>
-<li><u><span class="mathjax-exps">$\blue{\Kappa}$</span> decreases</u> and <span class="mathjax-exps">$\purple{\eta}$</span>, <span class="mathjax-exps">$\red{N}$</span> remain fixed.</li>
-<li><u><span class="mathjax-exps">$\purple{\eta}$</span> increases</u> and <span class="mathjax-exps">$\blue{\Kappa}$</span>, <span class="mathjax-exps">$\red{N}$</span> remain fixed.</li>
+<li><u><span class="mathjax-exps">$\textcolor{red}{N}$</span> increases</u> and <span class="mathjax-exps">$\textcolor{purple}{\eta}$</span>, <span class="mathjax-exps">$\textcolor{blue}{\Kappa}$</span> remain fixed.</li>
+<li><u><span class="mathjax-exps">$\textcolor{blue}{\Kappa}$</span> decreases</u> and <span class="mathjax-exps">$\textcolor{purple}{\eta}$</span>, <span class="mathjax-exps">$\textcolor{red}{N}$</span> remain fixed.</li>
+<li><u><span class="mathjax-exps">$\textcolor{purple}{\eta}$</span> increases</u> and <span class="mathjax-exps">$\textcolor{blue}{\Kappa}$</span>, <span class="mathjax-exps">$\textcolor{red}{N}$</span> remain fixed.</li>
 </ul>
 <p>Moreover, adding a distribution to the set <span class="mathjax-exps">$\{ P_1,\dots,P_N \}$</span> (i.e., increasing <span class="mathjax-exps">$N$</span>) typically decreases <span class="mathjax-exps">$\eta$</span> and increases <span class="mathjax-exps">$\Kappa$</span>.</p>
 <br>
 <p><strong>Proof.</strong> Let <span class="mathjax-exps">$\Pi$</span> denote a uniform prior over <span class="mathjax-exps">$\{ P_1,\dots,P_N \}$</span>. For any rule <span class="mathjax-exps">$T$</span>, we have that<br>
-</p><div class="mathjax-exps">$$\begin{align*}     r(T,\Pi) &amp;= \frac{1}{N} \sum_{j=1}^{N} \int \underbrace{L(T(w), P_j)}_{\orange{``\ell"}} p_j(w) d\nu(w) \\         &amp;\geq \frac{\eta}{2N} \sum_{j=1}^{n} \int I \left\{ L(T(w), P_j) \geq \frac{\eta}{2} \right\} p_j(w) \, d\nu(w), \tag{2} \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     r(T,\Pi) &amp;= \frac{1}{N} \sum_{j=1}^{N} \int \underbrace{L(T(w), P_j)}_{\textcolor{orange}{``\ell"}} p_j(w) d\nu(w) \\         &amp;\geq \frac{\eta}{2N} \sum_{j=1}^{n} \int I \left\{ L(T(w), P_j) \geq \frac{\eta}{2} \right\} p_j(w) \, d\nu(w), \tag{2} \end{align*}$$</div><p></p>
 <p>where we've used that <span class="mathjax-exps">$\ell\geq \frac{\eta}{2} I\left\{ \ell \geq \frac{\eta}{2} \right\}$</span> for all <span class="mathjax-exps">$\ell\geq 0$</span>.</p>
 <p>Continuing <span class="mathjax-exps">$(2)$</span>, we see<br>
-</p><div class="mathjax-exps">$$r(T,\Pi) \geq \frac{\eta}{2} \left[ 1 - \frac{1}{N} \int \underbrace{\sum_{j=1}^{N} I \left\{ L(T(w), P_j)&lt; \frac{\eta}{2} \right\} p_j(w)}_{\substack{\purple{\text{We'll now upper bound this}} \\ \purple{\text{quantity by } \max_j p_j(w)}}} d\nu(w) \right].$$</div><p></p>
+</p><div class="mathjax-exps">$$r(T,\Pi) \geq \frac{\eta}{2} \left[ 1 - \frac{1}{N} \int \underbrace{\sum_{j=1}^{N} I \left\{ L(T(w), P_j)&lt; \frac{\eta}{2} \right\} p_j(w)}_{\substack{\textcolor{purple}{\text{We'll now upper bound this}} \\ \textcolor{purple}{\text{quantity by } \max_j p_j(w)}}} d\nu(w) \right].$$</div><p></p>
 <p>For each <span class="mathjax-exps">$w$</span>,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \sum_{j=1}^{N} I \left\{ L(T(w), P_j) &lt; \frac{\eta}{2} \right\} p_j(w) &amp;\leq \left[ \max_j p_j(w) \right] \sum_{j=1}^{N} I \left\{ L(T(w), P_j) &lt; \frac{\eta}{2} \right\} \\         &amp;\leq \left[ \max_j p_j(w) \right] \underbrace{\sup_a \sum_{j=1}^{N} I \left\{ L(a, P_j) &lt; \frac{\eta}{2} \right\}}_{\red{\text{we'll show this is } \leq 1}}. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \sum_{j=1}^{N} I \left\{ L(T(w), P_j) &lt; \frac{\eta}{2} \right\} p_j(w) &amp;\leq \left[ \max_j p_j(w) \right] \sum_{j=1}^{N} I \left\{ L(T(w), P_j) &lt; \frac{\eta}{2} \right\} \\         &amp;\leq \left[ \max_j p_j(w) \right] \underbrace{\sup_a \sum_{j=1}^{N} I \left\{ L(a, P_j) &lt; \frac{\eta}{2} \right\}}_{\textcolor{red}{\text{we'll show this is } \leq 1}}. \end{align*}$$</div><p></p>
 <p>To show<br>
 </p><div class="mathjax-exps">$$\sup_a \sum_{j=1}^{N} I \left\{ L(a, P_j) &lt; \frac{\eta}{2} \right\} \leq 1, \tag{$\bigstar$}$$</div><p></p>
 <p>it will be useful to define <span class="mathjax-exps">$\eta_a = \min_{j\neq k} [L(a,P_j) + L(a,P_k)]$</span>.</p>
 <p><strong>Note:</strong> <span class="mathjax-exps">$\eta = \inf_a \eta_a$</span>, and so <span class="mathjax-exps">$\eta\leq \eta_a$</span> for all <span class="mathjax-exps">$a$</span>.</p>
 <p>Fix an action <span class="mathjax-exps">$a$</span>. We'll show that<br>
 </p><div class="mathjax-exps">$$\sum_{j=1}^{N} I \left\{ L(a,P_j) &lt; \frac{\eta}{2} \right\} \leq 1$$</div><p></p>
-<p><img src="chapter1\figures\IMG_0357.jpg" alt="number lines"></p>
+<p>![number lines](/jessica-phillips/img<br>
+/IMG_0357.jpg)</p>
 <br>
 <p>Also, because <span class="mathjax-exps">$\frac{\eta}{2} \leq \frac{\eta_a}{2}$</span>, we have<br>
 </p><div class="mathjax-exps">$$\sum_{j=1}^{N} I \left\{ L(a,P_j) &lt; \frac{\eta}{2} \right\} \leq \sum_{j=1}^{N} I \left\{ L(a, P_j) &lt; \frac{\eta_a}{2} \right\} \leq 1.$$</div><p></p>
@@ -346,18 +347,21 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <p>Here, for sufficiently small <span class="mathjax-exps">$a&gt;0$</span>, <span class="mathjax-exps">$K$</span> is defined as<br>
 </p><div class="mathjax-exps">$$K(x) = a \exp \left( - \frac{1}{1-4x^2} \right) I \left\{ |x| &lt; \frac{1}{2} \right\}.$$</div><p></p>
 <p>Below we can see a plot of the function <span class="mathjax-exps">$K$</span>.<br>
-<img src="chapter1\figures\IMG_0358.jpg" alt="plot of K"></p>
+![plot of K](/jessica-phillips/img<br>
+/IMG_0358.jpg)</p>
 <p>The quantity <span class="mathjax-exps">$a$</span> is chosen so that <span class="mathjax-exps">$f_\omega \in \mathcal{F}(\beta,L)$</span> for all <span class="mathjax-exps">$\omega \in \{ 0,1 \}^m$</span></p>
 <center>
-<p><img src="chapter1\figures\IMG_0359.jpg" alt=""></p>
-<p><img src="chapter1\figures\IMG_0360.jpg" alt=""></p>
+<p>![](/jessica-phillips/img<br>
+/IMG_0359.jpg)</p>
+<p>![](/jessica-phillips/img<br>
+/IMG_0360.jpg)</p>
 </center>
 <p>If, for some <span class="mathjax-exps">$\widetilde{\Omega} \subseteq \{ 0,1 \}^m$</span>, we applied Fano's method based on <span class="mathjax-exps">$\{ P_\omega = Q_\omega^n: \omega \in \widetilde{\Omega} \}$</span>, where <span class="mathjax-exps">$Q_\omega$</span> is the distribution with regression function <span class="mathjax-exps">$f_\omega$</span>,<br>
-</p><div class="mathjax-exps">$$\red{\inf_T \sup_{p} \mathcal{R}(T,P) \geq \frac{\min_{\omega\neq \nu} d(P_\omega, P_\nu)}{2} \left( 1 - \frac{\log(2) + \max_{\omega\neq \nu} \text{KL}(P_\omega, P_\nu)}{\log \left| \widetilde{\Omega} \right|} \right)}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{red}{\inf_T \sup_{p} \mathcal{R}(T,P) \geq \frac{\min_{\omega\neq \nu} d(P_\omega, P_\nu)}{2} \left( 1 - \frac{\log(2) + \max_{\omega\neq \nu} \text{KL}(P_\omega, P_\nu)}{\log \left| \widetilde{\Omega} \right|} \right)}.$$</div><p></p>
 <p>From earlier in this chapter<br>
-</p><div class="mathjax-exps">$$\blue{d(P_\omega, P_\nu) = \frac{1}{2} \int [f_\omega(x) - f_\nu(x)]^2 dx}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{blue}{d(P_\omega, P_\nu) = \frac{1}{2} \int [f_\omega(x) - f_\nu(x)]^2 dx}.$$</div><p></p>
 <p>Also, from slide 35 in the notes,<br>
-</p><div class="mathjax-exps">$$\blue{\text{KL}(P_\omega, P_\nu) = \frac{n}{2} \int [f_\omega(x) - f_\nu(x)]^2 dx}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{blue}{\text{KL}(P_\omega, P_\nu) = \frac{n}{2} \int [f_\omega(x) - f_\nu(x)]^2 dx}.$$</div><p></p>
 <p>Since none of the bump functions overlap, <span class="mathjax-exps">$\phi_j(x) \phi_k(x) = 0$</span> for all <span class="mathjax-exps">$j\neq k$</span>, and so<br>
 </p><div class="mathjax-exps">$$\begin{align*}     \int [f_\omega(x) - f_\nu(x)]^2 dx &amp;= \int_{0}^{1} \left[ \sum_{j=1}^{m} (\omega_j - \nu_j) \phi_j(x) \right]^2 dx \\         &amp;= \sum_{j=1}^{m} (\omega_j - \nu_j) \int \phi_j(x)^2 dx \\         &amp;= \sum_{j=1}^{m} (\omega_j - \nu_j)^2 L^2 h^{2\beta+1} \underbrace{\int K(u)^2 du}_{c_2} \tag{u-substitution} \\         &amp;= c_2 L^2 h^{2\beta+1} H(\omega, \nu), \end{align*}$$</div><p></p>
 <p>where <span class="mathjax-exps">$H(\omega,\nu) := \sum_{j=1}^{n} (\omega_j - \nu_j)^2$</span> denotes the Hamming distance between <span class="mathjax-exps">$\omega$</span> and <span class="mathjax-exps">$\nu$</span>.</p>
@@ -366,8 +370,8 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <p>and<br>
 </p><div class="mathjax-exps">$$\text{KL}(P_\omega, P_\nu) = c_3 n h^{2\beta+1} H(\omega, \nu).$$</div><p></p>
 <p>Also, since <span class="mathjax-exps">$H(\omega, \nu) \leq m$</span>, we have that<br>
-</p><div class="mathjax-exps">$$\blue{\max_{\omega\neq \nu} \text{KL}(P_\omega, P_\nu) \leq c_3 n h^{2\beta+1} m}.$$</div><p></p>
-<p>Plugging the above into <span class="mathjax-exps">$\red{\text{Fano's lower bound}}$</span>,<br>
+</p><div class="mathjax-exps">$$\textcolor{blue}{\max_{\omega\neq \nu} \text{KL}(P_\omega, P_\nu) \leq c_3 n h^{2\beta+1} m}.$$</div><p></p>
+<p>Plugging the above into <span class="mathjax-exps">$\textcolor{red}{\text{Fano's lower bound}}$</span>,<br>
 </p><div class="mathjax-exps">$$\inf_T \sup_p R(T,P) \geq \frac{c_3 h^{2\beta+1}}{2} \min_{\omega\neq \nu} H(\omega,\nu) \cdot \left[ 1 - \frac{\log(2) + c_3 n h^{2\beta+1} m}{ \log \left| \widetilde{\Omega} \right|} \right].$$</div><p></p>
 <p>In what follows, we'll consider two choices of <span class="mathjax-exps">$\widetilde{\Omega} \subseteq \{ 0,1 \}^m$</span>.</p>
 <ul>
@@ -392,7 +396,8 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 </li>
 </ul>
 <p>From what you saw in STAT 581, you might expect this LB be to loose. In particular, consider the parametric problem where <span class="mathjax-exps">$f_Q: \widetilde{\mathcal{F}} := \left\{ x \mapsto \beta x: \beta\in [0,L] \right\}$</span></p>
-<p><img src="chapter1\figures\IMG_0361.jpg" alt="plot of f_Q"></p>
+<p>![plot of f_Q](/jessica-phillips/img<br>
+/IMG_0361.jpg)</p>
 <p>From last quarter, we know that the MLE satisfies<br>
 </p><div class="mathjax-exps">$$\sqrt{n} (\hat{\beta - \beta}) \stackrel{d}{\to} N(0,\sigma^2)$$</div><p></p>
 <p>Hence,<br>
@@ -405,10 +410,11 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 </ul>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#aa46e0; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Varshamov-Gilbert Lemma.</strong> If <span class="mathjax-exps">$m\geq 0$</span>, then there exists a subset <span class="mathjax-exps">$\widetilde{\Omega} \subseteq \{ 0,1 \}^m$</span> such that <span class="mathjax-exps">$\left| \widetilde{\Omega} \right| \geq 2^{m/8}$</span> and <span class="mathjax-exps">$\min_{\omega\neq\nu} H(\omega, \nu) \geq \tfrac{m}{8}$</span>.</p>
-<p><img src="chapter1\figures\IMG_0364.jpg" alt="image for vs-lemma"></p>
+<p>![image for vs-lemma](/jessica-phillips/img<br>
+/IMG_0364.jpg)</p>
 </div>
 <br>
-<p>Choosing <span class="mathjax-exps">$\widetilde{\Omega}$</span> as in the lemma, our <span class="mathjax-exps">$\boxed{\red{\text{lower bound}}}$</span><br>
+<p>Choosing <span class="mathjax-exps">$\widetilde{\Omega}$</span> as in the lemma, our <span class="mathjax-exps">$\boxed{\textcolor{red}{\text{lower bound}}}$</span><br>
 </p><div class="mathjax-exps">$$\begin{align*}   \inf_T \sup_p R(T,P) &amp;\geq \frac{c_3 h^{2\beta+1} m}{16} \left( 1 - \frac{\log(2) + 8c_3 nh^{2\beta+1}}{m\log(2) / 8} \right) \\       &amp;= \frac{c_3 h^{2\beta+1} m}{16} \left( 1 - \frac{8}{m} - \frac{8c_3 nh^{2\beta+1}}{\log(2)} \right). \end{align*}$$</div><p></p>
 <p>We'll choose <span class="mathjax-exps">$m$</span> as large as possible (i.e., <span class="mathjax-exps">$\lfloor{m L \frac{1}{h} - 1\rfloor}$</span>). Approximating this as <span class="mathjax-exps">$m\approx \frac{1}{h}$</span>, we find<br>
 </p><div class="mathjax-exps">$$LB \approx \frac{c_3 h^{2\beta}}{16} \left( 1 - 8h - \frac{8 c_3 nh^{2\beta + 1}}{\log(2)} \right) \tag{$\bigstar$}.$$</div><p></p>

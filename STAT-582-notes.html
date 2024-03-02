@@ -435,8 +435,8 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <li><a href="chapter2\chapter2.md#studying-%5Chatfhx0-as-an-estimator-of-fx0">Studying <span class="mathjax-exps">$\hat{f}_h(x_0)$</span> as an estimator of <span class="mathjax-exps">$f(x_0)$</span></a></li>
 </ul>
 </li>
-<li><a href="chapter2\chapter2.md#%5Cred%5Ctextbfbias-of-the-kde"><span class="mathjax-exps">$\red{\textbf{Bias}}$</span> of the KDE</a></li>
-<li><a href="chapter2\chapter2.md#%5Cblue%5Ctextvariance-of-the-kde"><span class="mathjax-exps">$\blue{\text{Variance}}$</span> of the KDE:</a></li>
+<li><a href="chapter2\chapter2.md#%5Cred%5Ctextbfbias-of-the-kde"><span class="mathjax-exps">$\textcolor{red}{\textbf{Bias}}$</span> of the KDE</a></li>
+<li><a href="chapter2\chapter2.md#%5Cblue%5Ctextvariance-of-the-kde"><span class="mathjax-exps">$\textcolor{blue}{\text{Variance}}$</span> of the KDE:</a></li>
 <li><a href="chapter2\chapter2.md#generalizations-and-conclusions">Generalizations and Conclusions</a>
 <ul>
 <li><a href="#generalizations">Generalizations</a></li>
@@ -535,7 +535,7 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <ol>
 <li>
 <p><u>Uniform kernel</u>:<br>
-</p><div class="mathjax-exps">$$K(u) = \frac{1}{2} I \{ |u|\leq 1 \}. \tag{$\blue{\bigstar}$}$$</div><p></p>
+</p><div class="mathjax-exps">$$K(u) = \frac{1}{2} I \{ |u|\leq 1 \}. \tag{$\textcolor{blue}{\bigstar}$}$$</div><p></p>
 </li>
 <li>
 <p><u>Epanechnikov kernel</u>:<br>
@@ -550,7 +550,7 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <br>
 <h4 id="studying-hatf_hx_0-as-an-estimator-of-fx_0">Studying <span class="mathjax-exps">$\hat{f}_h(x_0)$</span> as an estimator of <span class="mathjax-exps">$f(x_0)$</span> </h4>
 <p>We'll quantify performance in terms of MSE:<br>
-</p><div class="mathjax-exps">$$E \left[ \left\{ \hat{f}_h(x_0) - f(x_0) \right\}^2 \right] = \underbrace{\red{ \left\{ E[\hat{f}_h(x_0)] - f(x_0) \right\}^2}}_{\text{bias}^2} + \underbrace{\blue{var(\hat{f}_h(x_0))}}_{\text{variance}}$$</div><p></p>
+</p><div class="mathjax-exps">$$E \left[ \left\{ \hat{f}_h(x_0) - f(x_0) \right\}^2 \right] = \underbrace{\textcolor{red}{ \left\{ E[\hat{f}_h(x_0)] - f(x_0) \right\}^2}}_{\text{bias}^2} + \underbrace{\textcolor{blue}{var(\hat{f}_h(x_0))}}_{\text{variance}}$$</div><p></p>
 <p>We'll suppose that <span class="mathjax-exps">$f$</span> belong to a <span class="mathjax-exps">$(\beta,L)$</span> Hölder class with <span class="mathjax-exps">$\beta=2$</span> and <span class="mathjax-exps">$L&gt;0$</span>.</p>
 <p><strong>Recall:</strong> Saying that <span class="mathjax-exps">$f$</span> is <span class="mathjax-exps">$(2,L)$</span> Hölder means that<br>
 </p><div class="mathjax-exps">$$\left| f'(x_1) - f'(x_2) \right| \leq L |x_1 - x_2| \hspace{2em} \forall x_1, x_2.$$</div><p></p>
@@ -563,48 +563,48 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <li>is second-order; and</li>
 <li>has bounded support.</li>
 </ul>
-<p>We're going to see that choosing a small bandwidth <span class="mathjax-exps">$h&gt;0$</span> yields <span class="mathjax-exps">$\red{\text{low bias}}$</span> and <span class="mathjax-exps">$\blue{\text{high variance}}$</span>, and vice versa.</p>
+<p>We're going to see that choosing a small bandwidth <span class="mathjax-exps">$h&gt;0$</span> yields <span class="mathjax-exps">$\textcolor{red}{\text{low bias}}$</span> and <span class="mathjax-exps">$\textcolor{blue}{\text{high variance}}$</span>, and vice versa.</p>
 </div>
 <br>
-<h3 id="redtextbfbias-of-the-kde"><span class="mathjax-exps">$\red{\textbf{Bias}}$</span> of the KDE </h3>
+<h3 id="redtextbfbias-of-the-kde"><span class="mathjax-exps">$\textcolor{red}{\textbf{Bias}}$</span> of the KDE </h3>
 <p><strong>Recall:</strong> The bias is <span class="mathjax-exps">$\text{Bias} = E[\hat{f}_h(x_0)] - f(x_0)$</span> and <span class="mathjax-exps">$f(x_0) = \int K(u) f(x_0) du$</span> (since <span class="mathjax-exps">$\int K(u) du = 1$</span>). Thus, we have<br>
 </p><div class="mathjax-exps">$$\begin{align*}     E\left[ \hat{f}_h(x_0) \right] &amp;= \frac{1}{nh} \sum_{i=1}^{n} E \left[ K \left( \frac{X_i - x_0}{h} \right) \right] \\         &amp;= \frac{1}{h} E \left[ K \left( \frac{X_1 - x_0}{h} \right) \right] \tag{identically distributed} \\         &amp;= \frac{1}{h} \int K \left( \frac{x_1 - x_0}{h} \right) f(x_1) dx_1 \tag{$u = \tfrac{x_1-x_0}{h}$}m \\         &amp;= \int K(u) f(x_0 + uh) du. \end{align*}$$</div><p></p>
 <p>Recalling that <span class="mathjax-exps">$\int K(u) du = 1$</span>, we have<br>
-</p><div class="mathjax-exps">$$\text{Bias} = \int K(u) \underbrace{[f(x_0+ uh) - f(x_0)]}_{\purple{\bigstar}} du.$$</div><p></p>
+</p><div class="mathjax-exps">$$\text{Bias} = \int K(u) \underbrace{[f(x_0+ uh) - f(x_0)]}_{\textcolor{purple}{\bigstar}} du.$$</div><p></p>
 <p>By the mean value theorem, there exists <span class="mathjax-exps">$\tilde{x}_{uh}$</span> between <span class="mathjax-exps">$x_0+uh$</span> and <span class="mathjax-exps">$x_0$</span> such that<br>
-</p><div class="mathjax-exps">$$\purple{\bigstar} = uh f'(\tilde{x}_{uh}).$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{purple}{\bigstar} = uh f'(\tilde{x}_{uh}).$$</div><p></p>
 <p>Hence,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \text{Bias} &amp;= \int K(u) uh \, f'(\tilde{x}_{uh}) du \\         &amp;= \underbrace{\int K(u) uh f'(x_0) du}_{\substack{\purple{h f'(x_0) \int K(u) u du} \\ \purple{=0 \text{ b/c } K \text{ is } 2^{nd} \text{-order}}}} + \int K(u) uh \left[ f'(\tilde{x}_{uh}) - f'(x_0) \right] du. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \text{Bias} &amp;= \int K(u) uh \, f'(\tilde{x}_{uh}) du \\         &amp;= \underbrace{\int K(u) uh f'(x_0) du}_{\substack{\textcolor{purple}{h f'(x_0) \int K(u) u du} \\ \textcolor{purple}{=0 \text{ b/c } K \text{ is } 2^{nd} \text{-order}}}} + \int K(u) uh \left[ f'(\tilde{x}_{uh}) - f'(x_0) \right] du. \end{align*}$$</div><p></p>
 <p>We're leveraging the fact that <span class="mathjax-exps">$\tilde{x}_{uh}$</span> is close to <span class="mathjax-exps">$x_0$</span>, as can be seen on the number line below:<br>
 <small></small></p><small>
 <p><img src="chapter2\figures\IMG_0375.jpg" alt="number line"></p>
 </small>
 <p>Hence,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     |\text{Bias}| &amp;= \left| \int K(u) uh  [f'(\tilde{x}_{uh})  - f'(x_0)] du \right| \\         &amp;\leq h \int K(u) \vert u| |f'(\tilde{x}_{uh}) - f'(x_0)| du \\         &amp;\leq L h \int K(u) |u| \underbrace{|\tilde{x}_{uh} - x_0 |}_{\orange{|u| h}} du \\         &amp;\leq Lh \underbrace{\int K(u) u^2 du}_{:=\sigma_k^2 \text{ (constant)}}. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     |\text{Bias}| &amp;= \left| \int K(u) uh  [f'(\tilde{x}_{uh})  - f'(x_0)] du \right| \\         &amp;\leq h \int K(u) \vert u| |f'(\tilde{x}_{uh}) - f'(x_0)| du \\         &amp;\leq L h \int K(u) |u| \underbrace{|\tilde{x}_{uh} - x_0 |}_{\textcolor{orange}{|u| h}} du \\         &amp;\leq Lh \underbrace{\int K(u) u^2 du}_{:=\sigma_k^2 \text{ (constant)}}. \end{align*}$$</div><p></p>
 <p>Hence,<br>
-</p><div class="mathjax-exps">$$\red{\boxed{\text{Bias}^2 \leq L \sigma_k^4 h^4}}.$$</div><p></p>
-<h3 id="bluetextvariance-of-the-kde"><span class="mathjax-exps">$\blue{\text{Variance}}$</span> of the KDE: </h3>
-<p></p><div class="mathjax-exps">$$\begin{align*}     var[\hat{f}_h(x_0)] &amp;= var \left[ \frac{1}{nh} \sum_{i=1}^{n} K \left( \frac{X_i - x_0}{h} \right) \right] \\         &amp;= \frac{1}{n^2h^2} \sum_{i=1}^{n} var\left[ K \left( \frac{X_i - x_0}{h} \right) \right] \tag{ind.} \\         &amp;= \frac{1}{nh^2} var \left[ K \left( \frac{X_1 - x_0}{h} \right) \right] \tag{ident.} \\         &amp;\leq \frac{1}{nh^2} E \left[ K\left( \frac{x_1 - x_0}{h} \right)^2 \right] \\         &amp;= \frac{1}{nh^2} \int K \left( \frac{x_1-x_0}{h} \right)^2 f(x_1) dx_1 \\         &amp;= \frac{1}{nh} \underbrace{\int K(u)^2 f(x_0 + uh) du}_{\purple{(\bigstar\bigstar})} \hspace{2em} u= \frac{x_1 - x_0}{h} \tag{2} \end{align*}$$</div><p></p>
-<p>We'll study <span class="mathjax-exps">$\purple{(\bigstar\bigstar)}$</span> in what follows. To do this,  we'll use the following two facts:</p>
+</p><div class="mathjax-exps">$$\textcolor{red}{\boxed{\text{Bias}^2 \leq L \sigma_k^4 h^4}}.$$</div><p></p>
+<h3 id="bluetextvariance-of-the-kde"><span class="mathjax-exps">$\textcolor{blue}{\text{Variance}}$</span> of the KDE: </h3>
+<p></p><div class="mathjax-exps">$$\begin{align*}     var[\hat{f}_h(x_0)] &amp;= var \left[ \frac{1}{nh} \sum_{i=1}^{n} K \left( \frac{X_i - x_0}{h} \right) \right] \\         &amp;= \frac{1}{n^2h^2} \sum_{i=1}^{n} var\left[ K \left( \frac{X_i - x_0}{h} \right) \right] \tag{ind.} \\         &amp;= \frac{1}{nh^2} var \left[ K \left( \frac{X_1 - x_0}{h} \right) \right] \tag{ident.} \\         &amp;\leq \frac{1}{nh^2} E \left[ K\left( \frac{x_1 - x_0}{h} \right)^2 \right] \\         &amp;= \frac{1}{nh^2} \int K \left( \frac{x_1-x_0}{h} \right)^2 f(x_1) dx_1 \\         &amp;= \frac{1}{nh} \underbrace{\int K(u)^2 f(x_0 + uh) du}_{\textcolor{purple}{(\bigstar\bigstar})} \hspace{2em} u= \frac{x_1 - x_0}{h} \tag{2} \end{align*}$$</div><p></p>
+<p>We'll study <span class="mathjax-exps">$\textcolor{purple}{(\bigstar\bigstar)}$</span> in what follows. To do this,  we'll use the following two facts:</p>
 <ol>
 <li><span class="mathjax-exps">$f$</span> is Hölder continuous, and therefore, continuous in general;</li>
 <li><span class="mathjax-exps">$K$</span> has bounded support.</li>
 </ol>
 <p>Let <span class="mathjax-exps">$k_1:= \inf\left\{ u: K(u)&gt;0 \right\}$</span> and <span class="mathjax-exps">$k_2:= \sup \left\{ u: K(u)&gt;0 \right\}$</span>. We have that<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \purple{\bigstar\bigstar} &amp;= \int_{[k_1,k_2]} K(u)^2 f(x_0 + uh) du \\         &amp;\leq \left[ \sup_{u\in[k_1,k_2]} f(x_0+uh) \right] \int_{[k_1,k_2]} K(u)^2 du. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \textcolor{purple}{\bigstar\bigstar} &amp;= \int_{[k_1,k_2]} K(u)^2 f(x_0 + uh) du \\         &amp;\leq \left[ \sup_{u\in[k_1,k_2]} f(x_0+uh) \right] \int_{[k_1,k_2]} K(u)^2 du. \end{align*}$$</div><p></p>
 <p>If <span class="mathjax-exps">$h\leq 1$</span>, then this shows<br>
-</p><div class="mathjax-exps">$$\begin{align*}     &amp;\leq \underbrace{\left[ \sup_{t\in[k_1,k_2]} f(x_0+t) \right] \int_{[k_1,k_2]} K(u)^2 du}_{\orange{\widetilde{C}}}. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     &amp;\leq \underbrace{\left[ \sup_{t\in[k_1,k_2]} f(x_0+t) \right] \int_{[k_1,k_2]} K(u)^2 du}_{\textcolor{orange}{\widetilde{C}}}. \end{align*}$$</div><p></p>
 <p>Recall that continuous functions are bounded over compact sets. Also remember that we are trying to find a bound that does not depend on <span class="mathjax-exps">$h$</span>. Also note that since <span class="mathjax-exps">$K$</span> is bounded, we know that the above will be a finite constant.</p>
 <p>Plugging the above into <span class="mathjax-exps">$(2)$</span>,<br>
-</p><div class="mathjax-exps">$$\blue{var(\hat{f}_{h}(x_0)) \leq \frac{\widetilde{C}}{nh}}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{blue}{var(\hat{f}_{h}(x_0)) \leq \frac{\widetilde{C}}{nh}}.$$</div><p></p>
 <h3 id="generalizations-and-conclusions">Generalizations and Conclusions </h3>
-<p><strong>Conclusion:</strong> Plugging in our bounds in <span class="mathjax-exps">$\red{\boxed{\text{Bias}^2}}$</span> and <span class="mathjax-exps">$\blue{\boxed{var}}$</span>, we find that<br>
-</p><div class="mathjax-exps">$$\purple{\sup_Q} \text{MSE} \leq \red{L^2 \sigma_k^2 h^4} + \blue{\frac{\widetilde{C}}{nh}} \tag{$\purple{\blacktriangle}$}$$</div><p></p>
+<p><strong>Conclusion:</strong> Plugging in our bounds in <span class="mathjax-exps">$\textcolor{red}{\boxed{\text{Bias}^2}}$</span> and <span class="mathjax-exps">$\textcolor{blue}{\boxed{var}}$</span>, we find that<br>
+</p><div class="mathjax-exps">$$\textcolor{purple}{\sup_Q} \text{MSE} \leq \textcolor{red}{L^2 \sigma_k^2 h^4} + \textcolor{blue}{\frac{\widetilde{C}}{nh}} \tag{$\textcolor{purple}{\blacktriangle}$}$$</div><p></p>
 <p><strong>Note from Alex:</strong> The first terms shrinks as <span class="mathjax-exps">$h$</span> becomes small and the second grows. Setting the two terms equal to each other and solving for <span class="mathjax-exps">$h$</span> will provide a note describing how <span class="mathjax-exps">$h$</span> should change with <span class="mathjax-exps">$n$</span> to make the bound as tight as possible. Setting the two terms to each other and solving for <span class="mathjax-exps">$h$</span> is the best way to balance out the two terms.<br>
 </p><div class="mathjax-exps">$$L^2 \sigma_k^4 h^4 = \frac{\widetilde{C}}{nh} \implies h = Cn^{-1/5}$$</div><p></p>
 <p>for some <span class="mathjax-exps">$C$</span>. Plugging this into our bound on the MSE, we find that choosing the bandwidth yields<br>
 </p><div class="mathjax-exps">$$MSE = O(n^{-4/5}).$$</div><p></p>
-<p><strong>Note to self:</strong> We are studying the bias-variance tradeoff, so increasing the variance will increase the bias, and vice-versa. Our goal is to choose an <span class="mathjax-exps">$h$</span> that balances out these two terms so neither of them are too large. Also note that removing the supremum from <span class="mathjax-exps">$(\purple{\blacktriangle})$</span> makes it possible for the upper bound to be loose under certain conditions.</p>
+<p><strong>Note to self:</strong> We are studying the bias-variance tradeoff, so increasing the variance will increase the bias, and vice-versa. Our goal is to choose an <span class="mathjax-exps">$h$</span> that balances out these two terms so neither of them are too large. Also note that removing the supremum from <span class="mathjax-exps">$(\textcolor{purple}{\blacktriangle})$</span> makes it possible for the upper bound to be loose under certain conditions.</p>
 <br>
 <h4 id="generalizations">Generalizations </h4>
 <ol>
@@ -624,8 +624,8 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <ul>
 <p>Suppose <span class="mathjax-exps">$X$</span> is <span class="mathjax-exps">$d$</span>-dimensional. A KDE in this case takes the form<br>
 </p><div class="mathjax-exps">$$\hat{f}_h(x_0) = \frac{1}{nh^d} \sum_{i=1}^{n} \prod_{j=1}^{d} K \left( \frac{X_{i,j} - x_{0,j}}{h} \right).$$</div><p></p>
-<p>If <span class="mathjax-exps">$f$</span> is <span class="mathjax-exps">$\blue{\beta\text{-times differentiable}}$</span> and all partial derivatives up to order <span class="mathjax-exps">$\beta$</span> are bounded, then for proper choice of bandwidth <span class="mathjax-exps">$h$</span>, we have<br>
-</p><div class="mathjax-exps">$$\text{MSE} = O\left( n^{-\frac{2\blue{\beta}}{2\blue{\beta}+\red{d}}} \right)$$</div><p></p>
+<p>If <span class="mathjax-exps">$f$</span> is <span class="mathjax-exps">$\textcolor{blue}{\beta\text{-times differentiable}}$</span> and all partial derivatives up to order <span class="mathjax-exps">$\beta$</span> are bounded, then for proper choice of bandwidth <span class="mathjax-exps">$h$</span>, we have<br>
+</p><div class="mathjax-exps">$$\text{MSE} = O\left( n^{-\frac{2\textcolor{blue}{\beta}}{2\textcolor{blue}{\beta}+\textcolor{red}{d}}} \right)$$</div><p></p>
 <p>To see this more clearly, reference the below table.</p>
 <table>
 <thead>
@@ -691,7 +691,7 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 </li>
 <li>
 <p>For the first part of this chapter, we'll focus on <span class="mathjax-exps">$f$</span> of the form<br>
-</p><div class="mathjax-exps">$$f: \underbrace{(x_1,\dots,x_n)}_{\blue{x_1^n}} \mapsto \frac{1}{n} \sum_{i=1}^{n} x_i$$</div><p></p>
+</p><div class="mathjax-exps">$$f: \underbrace{(x_1,\dots,x_n)}_{\textcolor{blue}{x_1^n}} \mapsto \frac{1}{n} \sum_{i=1}^{n} x_i$$</div><p></p>
 <p>or<br>
 </p><div class="mathjax-exps">$$f: x_1^n \mapsto \left| \frac{1}{n} \sum_{i=1}^{n} x_i - E \left[ \frac{1}{n} \sum_{i=1}^{n} X_i \right] \right|.$$</div><p></p>
 </li>
@@ -733,7 +733,7 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 </p><div class="mathjax-exps">$$P \left\{ X\geq t \right\} \leq \frac{E[X]}{t}.$$</div><p></p>
 <br>
 <p><strong>Proof.</strong> For any <span class="mathjax-exps">$t&gt;0$</span>,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     P \left\{ X\geq t \right\} &amp;= \int_t^\infty \purple{1} dP(x) \\         &amp;\leq \int_t^\infty \purple{\frac{x}{t}} dP(x) \hspace{2em} \purple{ \left( 1 \leq \frac{x}{t} \text{ whenever } t\leq x \right) } \\         &amp;\leq \int_0^\infty \frac{x}{t} dP(x) \\         &amp;= \frac{E[X]}{t}. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     P \left\{ X\geq t \right\} &amp;= \int_t^\infty \textcolor{purple}{1} dP(x) \\         &amp;\leq \int_t^\infty \textcolor{purple}{\frac{x}{t}} dP(x) \hspace{2em} \textcolor{purple}{ \left( 1 \leq \frac{x}{t} \text{ whenever } t\leq x \right) } \\         &amp;\leq \int_0^\infty \frac{x}{t} dP(x) \\         &amp;= \frac{E[X]}{t}. \end{align*}$$</div><p></p>
 </div>
 <br>
 <p><strong>Note:</strong> <u>Note</u> all of our concentration inequalities use Markov's inequality as a building block.</p>
@@ -744,7 +744,7 @@ We want to estimate <span class="mathjax-exps">$\Psi(P)\in\mathbb{R}$</span> and
 <p><strong>Proof.</strong> Because <span class="mathjax-exps">$h$</span> is nondecreasing,<br>
 </p><div class="mathjax-exps">$$\{ |X-E[X]| \geq t \} \subseteq \left\{ h(|X-E[X]|) \geq h(t) \right\}.$$</div><p></p>
 <p>Hence,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     P \left\{ |X- E[X]| \geq t \right\} &amp;\leq P \left\{ h(|X-E[X]|) \geq h(t) \right\} \\         &amp;\leq \frac{E[h(|X-E[X]|)]}{h(t)}. \hspace{4em} \purple{\text{(by Markov)}} \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     P \left\{ |X- E[X]| \geq t \right\} &amp;\leq P \left\{ h(|X-E[X]|) \geq h(t) \right\} \\         &amp;\leq \frac{E[h(|X-E[X]|)]}{h(t)}. \hspace{4em} \textcolor{purple}{\text{(by Markov)}} \end{align*}$$</div><p></p>
 </div>
 <br>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#0000ff; padding:0.75em; padding-bottom: 0em;">
@@ -775,7 +775,7 @@ Let <span class="mathjax-exps">$h(t) = t^2$</span>. Then,<br>
 <p>where <span class="mathjax-exps">$\mu = E[X]$</span>. Hence,<br>
 </p><div class="mathjax-exps">$$P \{ X-E[X] \geq t \} \leq \inf_{\lambda&gt;0} \frac{M_{X-\mu}(\lambda)}{e^{\lambda t}}.$$</div><p></p>
 <p>Equivalently,<br>
-</p><div class="mathjax-exps">$$\orange{\boxed{\log P \{ X- E[X] \geq t \} \leq -\sup_{\lambda&gt;0} \left\{ \lambda t - \underbrace{\log M_{x-\mu}(\lambda)}_{\substack{\blue{\text{``cumulant generating}} \\ \blue{\text{function"}}}} \right\}}}$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{orange}{\boxed{\log P \{ X- E[X] \geq t \} \leq -\sup_{\lambda&gt;0} \left\{ \lambda t - \underbrace{\log M_{x-\mu}(\lambda)}_{\substack{\textcolor{blue}{\text{``cumulant generating}} \\ \textcolor{blue}{\text{function"}}}} \right\}}}$$</div><p></p>
 <p>Remark: Apply Chernoff twice, one to the random variable <span class="mathjax-exps">$X$</span> and once to <span class="mathjax-exps">$-X$</span>, we see that<br>
 </p><div class="mathjax-exps">$$\begin{align*}     P \left\{ |X-E[X]| \geq t \right\} \leq P \left\{ X - E[X] \geq t \right\} + P \left\{ X-E[X] \geq -t \right\}. \end{align*}$$</div><p></p>
 <p>We can use Chernoff to bound each of the two tail probabilities on the right.</p>
@@ -784,7 +784,7 @@ Let <span class="mathjax-exps">$h(t) = t^2$</span>. Then,<br>
 <p>Suppose <span class="mathjax-exps">$X\sim N(\mu,\sigma^2)$</span>. In this case,<br>
 </p><div class="mathjax-exps">$$M_{X-\mu}(\lambda) = \exp \left\{ \frac{\lambda^2 \sigma^2}{2} \right\},$$</div><p></p>
 <p>as shown on slide 14 of the lecture notes.</p>
-<p>Plugging the form of <span class="mathjax-exps">$M_{X-\mu}(\lambda)$</span> info <span class="mathjax-exps">$\orange{\boxed{\text{Chernoff}}}$</span>, we find that<br>
+<p>Plugging the form of <span class="mathjax-exps">$M_{X-\mu}(\lambda)$</span> info <span class="mathjax-exps">$\textcolor{orange}{\boxed{\text{Chernoff}}}$</span>, we find that<br>
 </p><div class="mathjax-exps">$$\begin{align*}     \log P \left\{ X- \mu \geq t \right\} &amp;\leq - \sup_{\lambda&gt;0} \left\{ \lambda t - \log M_{X-\mu} (\lambda) \right\} \\         &amp;= - \sup_{\lambda&gt;0} \left\{ \lambda t - \frac{\lambda^2\sigma^2}{2} \right\}. \end{align*}$$</div><p></p>
 <p>Solving for the <span class="mathjax-exps">$\lambda^*$</span> that maximizes the above, we find that <span class="mathjax-exps">$\lambda^* = \frac{t}{\sigma^2}$</span>. Hence,<br>
 </p><div class="mathjax-exps">$$\begin{align*}     \log P &amp;\left\{ X- \mu \geq t \right\} \leq \frac{t}{-2\sigma^2} \\         &amp;\implies \log P \left\{ X- \mu \geq t \right\} \leq \exp \left\{ - \frac{t^2}{2\sigma^2} \right\}. \end{align*}$$</div><p></p>
@@ -794,7 +794,7 @@ Let <span class="mathjax-exps">$h(t) = t^2$</span>. Then,<br>
 <br>
 <h3 id="sub-gaussian-random-variables">Sub-Gaussian Random Variables </h3>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#42801f; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
-<p><strong>Definition.</strong> A random variable <span class="mathjax-exps">$X$</span> is called <span class="mathjax-exps">$\blue{\text{sub-Gaussian (sub-G)}}$</span> with parameter <span class="mathjax-exps">$\sigma^2$</span> if<br>
+<p><strong>Definition.</strong> A random variable <span class="mathjax-exps">$X$</span> is called <span class="mathjax-exps">$\textcolor{blue}{\text{sub-Gaussian (sub-G)}}$</span> with parameter <span class="mathjax-exps">$\sigma^2$</span> if<br>
 </p><div class="mathjax-exps">$$\log M_{X-\mu}(\lambda) \leq \frac{\lambda^2\sigma^2}{2} \hspace{2em} \text{for all }  \lambda \in\mathbb{R}.$$</div><p></p>
 </div>
 <br>
@@ -804,29 +804,29 @@ Let <span class="mathjax-exps">$h(t) = t^2$</span>. Then,<br>
 </div>
 <br>
 <p>By Chernoff, a sub-Gaussian random variable <span class="mathjax-exps">$X$</span> with parameter <span class="mathjax-exps">$\sigma^2$</span> satisfies<br>
-</p><div class="mathjax-exps">$$\blue{\boxed{P\left\{ X - E[X] \geq t \right\} \leq \exp \left\{ - \frac{t^2}{2\sigma^2} \right\}.}}$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{blue}{\boxed{P\left\{ X - E[X] \geq t \right\} \leq \exp \left\{ - \frac{t^2}{2\sigma^2} \right\}.}}$$</div><p></p>
 <p>This is the same bound as we derived for a <span class="mathjax-exps">$N(\mu,\sigma^2)$</span> random variable!<br>
 <br></p>
 <h4 id="alternative-characterizations-of-sub-gaussianity">Alternative Characterizations of Sub-Gaussianity </h4>
 <p><strong>Note:</strong> this can be found in <u>Wainwright, Chapter 2</u>.</p>
-<p>A random variable <span class="mathjax-exps">$X$</span> is sub-Gaussian if and only if there exist <span class="mathjax-exps">$\blue{c&gt;0}$</span> and <span class="mathjax-exps">$\orange{s&gt;0}$</span> such that, for all <span class="mathjax-exps">$t&gt;0$</span>,<br>
-</p><div class="mathjax-exps">$$P \left\{ |X-E[X]| \geq t \right\} \leq \blue{c} P \left\{ |\orange{s} Z| \geq t \right\},$$</div><p></p>
+<p>A random variable <span class="mathjax-exps">$X$</span> is sub-Gaussian if and only if there exist <span class="mathjax-exps">$\textcolor{blue}{c&gt;0}$</span> and <span class="mathjax-exps">$\textcolor{orange}{s&gt;0}$</span> such that, for all <span class="mathjax-exps">$t&gt;0$</span>,<br>
+</p><div class="mathjax-exps">$$P \left\{ |X-E[X]| \geq t \right\} \leq \textcolor{blue}{c} P \left\{ |\textcolor{orange}{s} Z| \geq t \right\},$$</div><p></p>
 <p>where <span class="mathjax-exps">$Z\sim N(0,1)$</span>.</p>
-<p><strong>Remark.</strong> <span class="mathjax-exps">$\orange{s}$</span> is not necessarily equal to <span class="mathjax-exps">$\sigma$</span>.</p>
+<p><strong>Remark.</strong> <span class="mathjax-exps">$\textcolor{orange}{s}$</span> is not necessarily equal to <span class="mathjax-exps">$\sigma$</span>.</p>
 <p>Observe the below plot:</p>
 <p><img src="chapter3\figures\IMG_0379.jpg" alt="plot"></p>
 <p>The probability is the area of the curve in the shaded tails.</p>
 <p>The dotted line represents a Gaussian with mean zero where, if we shaded under it, the shaded area under the Gaussian density will always be larger.</p>
 <p><strong>Counterexample:</strong> An <span class="mathjax-exps">$\text{Exp}(1)$</span> random variable is not sub-Gaussian. Why?<br>
 </p><div class="mathjax-exps">$$P \left\{ X \geq t \right\} = \exp(-t)$$</div><p></p>
-<p>The decay behavior is too solve, so we will never find <span class="mathjax-exps">$\blue{c}$</span> and <span class="mathjax-exps">$\orange{s}$</span> such that the above is true. Sub-Gaussianity regards tail decay.</p>
+<p>The decay behavior is too solve, so we will never find <span class="mathjax-exps">$\textcolor{blue}{c}$</span> and <span class="mathjax-exps">$\textcolor{orange}{s}$</span> such that the above is true. Sub-Gaussianity regards tail decay.</p>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#43b7d1; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Theorem (Hoeffding).</strong> If <span class="mathjax-exps">$X$</span> is a random variable with support <span class="mathjax-exps">$[a,b]$</span> (<span class="mathjax-exps">$|a|, |b| &lt;\infty$</span>), then <span class="mathjax-exps">$X$</span> is sub-Gaussian with parameter <span class="mathjax-exps">$\sigma^2 = \frac{(b-a)^2}{4}$</span>.</p>
 <br>
 <p><strong>Proof.</strong> Without loss of generality, suppose that <span class="mathjax-exps">$E[X] = 0$</span>. Let <span class="mathjax-exps">$f(\lambda) = \log M_{X-\mu}(\lambda)$</span>. Notings that<br>
 </p><div class="mathjax-exps">$$f'(0) = \frac{E[X]}{E \left\{ \exp [(X-\mu)\cdot 0] \right\}} = E[X] = 0,$$</div><p></p>
 <p>we have that<br>
-</p><div class="mathjax-exps">$$f(\lambda) = \underbrace{\int_0^\infty f'(r) dr}_{\purple{= f(\lambda) - f(0) = f(\lambda)}} = \int_{0}^{\lambda} \underbrace{\int_0^{r} f''(s) ds}_{\purple{f'(r) - f'(0) = f'(r)}} \, dr. \tag*{\textcolor{blue}{(1)}}$$</div><p></p>
+</p><div class="mathjax-exps">$$f(\lambda) = \underbrace{\int_0^\infty f'(r) dr}_{\textcolor{purple}{= f(\lambda) - f(0) = f(\lambda)}} = \int_{0}^{\lambda} \underbrace{\int_0^{r} f''(s) ds}_{\textcolor{purple}{f'(r) - f'(0) = f'(r)}} \, dr. \tag*{\textcolor{blue}{(1)}}$$</div><p></p>
 <p>Hence, to bound <span class="mathjax-exps">$f$</span>, it's enough to bound <span class="mathjax-exps">$f''$</span>. Note that<br>
 </p><div class="mathjax-exps">$$\begin{align*}     f'(\lambda) &amp;= \frac{E[Xe^{\lambda X}]}{E[e^{\lambda X}]}, \\     f''(\lambda) &amp;= \frac{E[X^2 e^{\lambda X}]}{E[e^{\lambda X}]} - \left( \frac{E[Xe^{\lambda X}]}{E[e^{\lambda X}]} \right)^2. \end{align*}$$</div><p></p>
 <p>Note that <span class="mathjax-exps">$f''(\lambda)$</span> is the variance of a RV <span class="mathjax-exps">$Z\lambda$</span> with density<br>
@@ -849,11 +849,11 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 <p>where <span class="mathjax-exps">$\bar{X}_n := \frac{1}{n} \sum_i X_i$</span> represents the sample mean.</p>
 <p>We'll sketch the proof of the above in the special case where <span class="mathjax-exps">$n=2$</span>. To do this, we'll show that if <span class="mathjax-exps">$X_1$</span> and <span class="mathjax-exps">$X_2$</span> are independent and sub-Gaussian with parameters <span class="mathjax-exps">$\sigma_1^2$</span> and <span class="mathjax-exps">$\sigma_2^2$</span>, then <span class="mathjax-exps">$X_1+X_2$</span> is sub-Gaussian with parameter <span class="mathjax-exps">$\sigma_1^2 + \sigma_2^2$</span>.</p>
 <p>To see this,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     M_{X_1+X_2} (\lambda) &amp;= E[\exp \{ \lambda(X_1 + X_2) \}] \\         &amp;= E[\exp\{ \lambda X_1 \} \exp \{ \lambda X_2 \}] \\         &amp;= E[\exp\{ \lambda X_1 \}] E[\exp\{ \lambda X_2 \}] \tag*{\purple{(\text{independence})}} \\         &amp;= M_{X_1} (\lambda) M_{X_2}(\lambda). \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     M_{X_1+X_2} (\lambda) &amp;= E[\exp \{ \lambda(X_1 + X_2) \}] \\         &amp;= E[\exp\{ \lambda X_1 \} \exp \{ \lambda X_2 \}] \\         &amp;= E[\exp\{ \lambda X_1 \}] E[\exp\{ \lambda X_2 \}] \tag*{\textcolor{purple}{(\text{independence})}} \\         &amp;= M_{X_1} (\lambda) M_{X_2}(\lambda). \end{align*}$$</div><p></p>
 <p>Similarly,<br>
 </p><div class="mathjax-exps">$$M_{X_1 + X_2 - E[X_1 + X_2]}(\lambda) = M_{X_1 - E[X_1]}(\lambda) \cdot M_{X_2 - E[X_2]}(\lambda).$$</div><p></p>
 <p>By the sub-Gaussianity of <span class="mathjax-exps">$X_1$</span> and <span class="mathjax-exps">$X_2$</span>, this implies<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \log M_{X_1 + X_2 - E[X_1 + X_2]}(\lambda) &amp;= \log M_{X_1 - E[X_1]}(\lambda) + \log M_{X_2 - E[X_2]}(\lambda) \\         &amp;\leq \sum_{i=1}^{2} \frac{\lambda \sigma_i^2}{2} \tag*{\purple{\text{(sub-Gaussianity of $X_1$ and $X_2$)}}} \\         &amp;= \frac{\lambda^2}{2} \sum_{i=1}^{2} \sigma_i^2. \tag*{$[a_i, b_i]$} \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \log M_{X_1 + X_2 - E[X_1 + X_2]}(\lambda) &amp;= \log M_{X_1 - E[X_1]}(\lambda) + \log M_{X_2 - E[X_2]}(\lambda) \\         &amp;\leq \sum_{i=1}^{2} \frac{\lambda \sigma_i^2}{2} \tag*{\textcolor{purple}{\text{(sub-Gaussianity of $X_1$ and $X_2$)}}} \\         &amp;= \frac{\lambda^2}{2} \sum_{i=1}^{2} \sigma_i^2. \tag*{$[a_i, b_i]$} \end{align*}$$</div><p></p>
 <p>Hence, <span class="mathjax-exps">$X_1 + X_2$</span> is sub-Gaussian with parameter <span class="mathjax-exps">$\sum_{i=1}^{2} \sigma_i^2$</span>.</p>
 <p>Combining this result with the preceding theorem and Chernoff's bound for sub-Gaussian RVs gives <span class="mathjax-exps">$\textcolor{blue}{(2)}$</span> when <span class="mathjax-exps">$n=2$</span>.<br>
 <br></p>
@@ -876,25 +876,25 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 <p><img src="chapter3\figures\IMG_0381.jpg" alt="plot of sub-E vs. Hoeffding"></p>
 <br>
 <p><strong>Proof.</strong> By Chernoff,<br>
-</p><div class="mathjax-exps">$$\log P \{ X \geq \mu + t \} \leq - \sup_{\lambda\in(0,\frac{1}{b})} \underbrace{\left[\lambda t - \frac{\lambda^2 \sigma^2}{2}\right]}_{\blue{=: f(\lambda)}}. \tag*{\textcolor{green}{(3)}}$$</div><p></p>
+</p><div class="mathjax-exps">$$\log P \{ X \geq \mu + t \} \leq - \sup_{\lambda\in(0,\frac{1}{b})} \underbrace{\left[\lambda t - \frac{\lambda^2 \sigma^2}{2}\right]}_{\textcolor{blue}{=: f(\lambda)}}. \tag*{\textcolor{green}{(3)}}$$</div><p></p>
 <p>If we extend the definition of <span class="mathjax-exps">$f$</span> to the whole real line, we'd find that <span class="mathjax-exps">$f$</span> achieves its maximum at <span class="mathjax-exps">$\lambda^* = \frac{t}{\sigma^2}$</span>.</p>
 <p>[image]</p>
 <p>If <span class="mathjax-exps">$t&lt;\frac{\sigma^2}{b}$</span>, then <span class="mathjax-exps">$\lambda^* &lt;\frac{1}{b}$</span>, and so<br>
 </p><div class="mathjax-exps">$$\sup_{\lambda\in(0,\frac{1}{b})} f(\lambda) = f(\lambda^*) = \lambda^* t - \frac{(\lambda^*)^2 \sigma^2}{2} = \frac{t^2 \sigma^2}{2}.$$</div><p></p>
 <p>Plugging this into <span class="mathjax-exps">$\textcolor{green}{(3)}$</span> gives the find bounds on the theorem statement.</p>
 <p>If <span class="mathjax-exps">$t\geq \frac{\sigma^2}{b}$</span>, then <span class="mathjax-exps">$\lambda^* \geq \frac{1}{b}$</span>. Using that <span class="mathjax-exps">$f$</span> is monotone increasing on <span class="mathjax-exps">$(0,\frac{1}{b})$</span> (see picture above), it holds that<br>
-</p><div class="mathjax-exps">$$\sup_{\lambda\in(0,\frac{1}{b})} f(\lambda) \stackrel{\scriptsize{\substack{\blue{(\text{cont.}} \\ \blue{\text{of }f)}}}}{=} f(\tfrac{1}{b}) = \frac{t}{b} - \frac{\sigma^2}{2b^2} \stackrel{\blue{(\tfrac{\sigma^2}{b} \leq t)}}{\geq} \frac{t}{2b}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\sup_{\lambda\in(0,\frac{1}{b})} f(\lambda) \stackrel{\scriptsize{\substack{\textcolor{blue}{(\text{cont.}} \\ \textcolor{blue}{\text{of }f)}}}}{=} f(\tfrac{1}{b}) = \frac{t}{b} - \frac{\sigma^2}{2b^2} \stackrel{\textcolor{blue}{(\tfrac{\sigma^2}{b} \leq t)}}{\geq} \frac{t}{2b}.$$</div><p></p>
 <p>Combining this with <span class="mathjax-exps">$\textcolor{green}{(3)}$</span> gives us the second bound.</p>
 </div>
 <br>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#0000ff; padding:0.75em; padding-bottom: 0em;">
 <p><big><strong>Example:</strong> Bounded random variable.</big></p>
 <p>Suppose <span class="mathjax-exps">$X$</span> is bounded, so that <span class="mathjax-exps">$|X-\mu| \leq b$</span> a.s. for some <span class="mathjax-exps">$b&gt;0$</span>. Also, let <span class="mathjax-exps">$\sigma^2 := var(X)$</span>. We'll now show that <span class="mathjax-exps">$X$</span> is sub-exponential with parameters <span class="mathjax-exps">$(2\sigma^2, 2b)$</span>.</p>
-<p><small><span class="mathjax-exps">$\blue{\text{From earlier: we know } X \text{ is sub-Gaussian with parameter } b^2}$</span>.</small></p>
+<p><small><span class="mathjax-exps">$\textcolor{blue}{\text{From earlier: we know } X \text{ is sub-Gaussian with parameter } b^2}$</span>.</small></p>
 <p>We'll show this as follows:<br>
-</p><div class="mathjax-exps">$$\begin{align*}     M_{X-\mu}(\lambda) &amp;= E \left[ \exp \{ \lambda(X-\mu) \} \right] \\         &amp;= 1 + \frac{\lambda^2 \sigma^2}{2} + \sum_{k=3}^{\infty} \lambda^k \frac{E[(X-\mu)^k]}{k!} \\         &amp;= 1 + \frac{\lambda^2 \sigma^2}{2} + \sum_{k=3}^{\infty} \lambda^k \frac{E[(X-\mu)^2 \overbrace{(X-\mu)^{k-2}}^{\purple{|\,\cdot\,| \leq b^{k-2}}}]}{k!} \\         &amp;\leq 1 + \frac{\lambda^2 \sigma^2}{2} +\lambda^2\sigma^2 \sum_{k=3}^{\infty} \frac{|\lambda|^{k-2} b^{k-2}}{k!} \\         &amp;\leq 1 + \frac{\lambda^2 \sigma^2}{2} + \lambda^2\sigma^2 \sum_{k=3}^{\infty} (|\lambda| b)^{k-2} \\         &amp;= 1 + \frac{\lambda^2 \sigma^2}{2} \sum_{k=0}^{\infty} (|\lambda| b)^k. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     M_{X-\mu}(\lambda) &amp;= E \left[ \exp \{ \lambda(X-\mu) \} \right] \\         &amp;= 1 + \frac{\lambda^2 \sigma^2}{2} + \sum_{k=3}^{\infty} \lambda^k \frac{E[(X-\mu)^k]}{k!} \\         &amp;= 1 + \frac{\lambda^2 \sigma^2}{2} + \sum_{k=3}^{\infty} \lambda^k \frac{E[(X-\mu)^2 \overbrace{(X-\mu)^{k-2}}^{\textcolor{purple}{|\,\cdot\,| \leq b^{k-2}}}]}{k!} \\         &amp;\leq 1 + \frac{\lambda^2 \sigma^2}{2} +\lambda^2\sigma^2 \sum_{k=3}^{\infty} \frac{|\lambda|^{k-2} b^{k-2}}{k!} \\         &amp;\leq 1 + \frac{\lambda^2 \sigma^2}{2} + \lambda^2\sigma^2 \sum_{k=3}^{\infty} (|\lambda| b)^{k-2} \\         &amp;= 1 + \frac{\lambda^2 \sigma^2}{2} \sum_{k=0}^{\infty} (|\lambda| b)^k. \end{align*}$$</div><p></p>
 <p>If <span class="mathjax-exps">$|\lambda| b &lt; 1$</span>, then the geometric series above converges, yielding<br>
-</p><div class="mathjax-exps">$$\begin{align*}     &amp;= 1 + \frac{\lambda^2 \sigma^2}{2 (1 - |\lambda| b)} \tag*{$\orange{(4)}$} \\     &amp;\leq \exp \left[ \frac{\lambda^2\sigma^2}{2(1 - |\lambda|b)} \right]. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     &amp;= 1 + \frac{\lambda^2 \sigma^2}{2 (1 - |\lambda| b)} \tag*{$\textcolor{orange}{(4)}$} \\     &amp;\leq \exp \left[ \frac{\lambda^2\sigma^2}{2(1 - |\lambda|b)} \right]. \end{align*}$$</div><p></p>
 <p>If <span class="mathjax-exps">$|\lambda|&lt; \frac{1}{2b}$</span>, then <span class="mathjax-exps">$1-|\lambda| b &gt; \frac{1}{2}$</span>, yielding<br>
 </p><div class="mathjax-exps">$$\leq \exp [\lambda^2\sigma^2]$$</div><p></p>
 <p>whenever <span class="mathjax-exps">$|\lambda| &lt; \frac{1}{2b}$</span>. Hence, <span class="mathjax-exps">$X$</span> is sub-exponential with parameters <span class="mathjax-exps">$(2\sigma^2, 2b)$</span>.</p>
@@ -904,7 +904,7 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 <p><strong>Theorem (Bernstein).</strong> Suppose <span class="mathjax-exps">$X$</span> is a random variable that is such that <span class="mathjax-exps">$|X - \mu| \leq b$</span> a.s. Let <span class="mathjax-exps">$\sigma^2:= var(X)$</span>. For all <span class="mathjax-exps">$t&gt;0$</span>,<br>
 </p><div class="mathjax-exps">$$P \left\{ |X-\mu| \geq t \right\} \leq \exp \left[ - \frac{t^2}{2\{ \sigma^2 + bt \}} \right].$$</div><p></p>
 <br>
-<p><strong>Proof.</strong> By Chernoff and <span class="mathjax-exps">$\orange{\text{(4)}}$</span>, we have, for any <span class="mathjax-exps">$\lambda\in[0,\frac{1}{b})$</span>,<br>
+<p><strong>Proof.</strong> By Chernoff and <span class="mathjax-exps">$\textcolor{orange}{\text{(4)}}$</span>, we have, for any <span class="mathjax-exps">$\lambda\in[0,\frac{1}{b})$</span>,<br>
 </p><div class="mathjax-exps">$$\begin{align*}     \log P \{ X-\mu \geq t \} &amp;\leq - [\lambda t  - \log M_{X-\mu}(\lambda)] \\         &amp;\leq - \left[ \lambda t + \frac{\lambda^2 \sigma^2}{2 (1-|\lambda|b)} \right]. \end{align*}$$</div><p></p>
 <p>Plugging in <span class="mathjax-exps">$\lambda = \frac{t}{bt+\sigma^2}\in[0,\frac{1}{b})$</span> into the above given the result.</p>
 </div>
@@ -912,11 +912,11 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 <p>Similar calculations can be used to establish the following more general form of Bernstein's inequality.</p>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#43b7d1; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Theorem (Bernstein).</strong> If <span class="mathjax-exps">$X_1,\dots,X_n$</span> are independent random variables satisfying <span class="mathjax-exps">$|X_i - \mu_i | \leq b$</span> a.s. for all <span class="mathjax-exps">$i$</span>. Let <span class="mathjax-exps">$\sigma_i^2 := var(X_i)$</span> and <span class="mathjax-exps">$\bar{\sigma}^2_n := \frac{1}{n} \sum_{i=1}^{n} \sigma_i^2$</span>. For all <span class="mathjax-exps">$t&gt;0$</span>,<br>
-</p><div class="mathjax-exps">$$P \left\{ \bar{X}_n - E[\bar{X}_n] \geq t \right\} \leq \exp \left[ - \frac{nt^2}{\blue{2[\bar{\sigma}^2_n + bt]}} \right].$$</div><p></p>
+</p><div class="mathjax-exps">$$P \left\{ \bar{X}_n - E[\bar{X}_n] \geq t \right\} \leq \exp \left[ - \frac{nt^2}{\textcolor{blue}{2[\bar{\sigma}^2_n + bt]}} \right].$$</div><p></p>
 </div>
 <br>
 <p>Comparing this to Hoeffding:<br>
-</p><div class="mathjax-exps">$$\begin{align*}     P \left\{ \bar{X}_n - E[\bar{X}_n] \geq t \right\} \leq \exp \left[ - \frac{nt^2}{\blue{2b^2}} \right]. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     P \left\{ \bar{X}_n - E[\bar{X}_n] \geq t \right\} \leq \exp \left[ - \frac{nt^2}{\textcolor{blue}{2b^2}} \right]. \end{align*}$$</div><p></p>
 <p>When comparing these two bounds, it is enough to simply compare the denominators shown in blue.</p>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#000000; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><big><strong>Some Notes:</strong></big></p>
@@ -925,7 +925,7 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 <br></li>
 <li><u>But:</u> If <span class="mathjax-exps">$\bar{\sigma}_n^2$</span> is small, then Bernstein's inequality can give much sharper bounds than Hoeffding.
 <ul>
-<li><u>Why?</u> Well, if <span class="mathjax-exps">$\bar{\sigma}_n^2$</span> and <span class="mathjax-exps">$t$</span> are both small, then the denominator in Bernstein's inequality is also small (<span class="mathjax-exps">$\blue{2[\bar{\sigma}_n^2 + bt]}$</span>) — and, in particular, much small than the denominator in Hoeffding's inequality (<span class="mathjax-exps">$\blue{2b^2}$</span>).</li>
+<li><u>Why?</u> Well, if <span class="mathjax-exps">$\bar{\sigma}_n^2$</span> and <span class="mathjax-exps">$t$</span> are both small, then the denominator in Bernstein's inequality is also small (<span class="mathjax-exps">$\textcolor{blue}{2[\bar{\sigma}_n^2 + bt]}$</span>) — and, in particular, much small than the denominator in Hoeffding's inequality (<span class="mathjax-exps">$\textcolor{blue}{2b^2}$</span>).</li>
 </ul>
 </li>
 </ul>
@@ -952,7 +952,7 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 </li>
 <li>
 <p>A function <span class="mathjax-exps">$f$</span> is said to satisfy the <span class="mathjax-exps">${\textcolor{blue}{\text{bounded differences property (BDP)}}}$</span> with parameters <span class="mathjax-exps">$c_1,c_2,\dots,c_n$</span> if, for all <span class="mathjax-exps">$i \in \{ 1,2,\dots,n \}$</span> and all <span class="mathjax-exps">$x_1,x_2,\dots,x_n, x_i' \in \mathcal{X}$</span>:<br>
-</p><div class="mathjax-exps">$$\left| f(x_1,\dots,x_{i-1}, \blue{x_i}, x_{i+1}, \dots, x_n) - f(x_1, \dots, x_{i-1}, \blue{x_i'}, x_{i+1}, \dots, x_n) \right| \leq c_i.$$</div><p></p>
+</p><div class="mathjax-exps">$$\left| f(x_1,\dots,x_{i-1}, \textcolor{blue}{x_i}, x_{i+1}, \dots, x_n) - f(x_1, \dots, x_{i-1}, \textcolor{blue}{x_i'}, x_{i+1}, \dots, x_n) \right| \leq c_i.$$</div><p></p>
 <p>(This is different than a Lipschitz condition. More about this at 26:00 in the Zoom lecture.)<br>
 <br></p>
 </li>
@@ -976,15 +976,15 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 <br>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#43b7d1; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Theorem (Bounded differences inequality; McDiarmid's inequality).</strong> If <span class="mathjax-exps">$X_1,\dots,X_n$</span> are independent RVs and <span class="mathjax-exps">$f$</span> satisfies the BDP with parameters <span class="mathjax-exps">$c_1,\dots,c_n$</span>, then, for all <span class="mathjax-exps">$t&gt;0$</span>,<br>
-</p><div class="mathjax-exps">$$\blue{P \left\{ | f(X_1^n) - E[f(X_1^n)] | \geq t \right\}} \leq 2 \exp \left\{ - \frac{2t^2}{\sum_{i=1}^{n} c_i^2} \right\}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{blue}{P \left\{ | f(X_1^n) - E[f(X_1^n)] | \geq t \right\}} \leq 2 \exp \left\{ - \frac{2t^2}{\sum_{i=1}^{n} c_i^2} \right\}.$$</div><p></p>
 <br>
 <p><strong>Proof.</strong> Let<br>
 </p><div class="mathjax-exps">$$\begin{align*}     D_1 := E[f(X_1^n) | X_1] - E[f(X)] \\     D_j := E[f(X_1^n) | X_1^j] - E[f(X_1^n) | X_1^{j-1}], \hspace{1em} j=2,3,\dots,n  \end{align*}$$</div><p></p>
-<p>where <span class="mathjax-exps">$X_1^j = \blue{X_1,X_2,\dots,X_j}$</span>.</p>
+<p>where <span class="mathjax-exps">$X_1^j = \textcolor{blue}{X_1,X_2,\dots,X_j}$</span>.</p>
 <p>Note that<br>
-</p><div class="mathjax-exps">$$\blue{f(X_1^n) - E[f(X_1^n)]} = \green{\sum_{j=1}^{n} D_j} \tag*{\textcolor{red}{(telescoping sum)}}.$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{blue}{f(X_1^n) - E[f(X_1^n)]} = \textcolor{green}{\sum_{j=1}^{n} D_j} \tag*{\textcolor{red}{(telescoping sum)}}.$$</div><p></p>
 <p>Thus, to establish our desired result, it's enough to show that<br>
-</p><div class="mathjax-exps">$$P \left\{ \left| \green{\sum_{j=1}^{n} D_j} \right| \geq t\right\} \leq 2 \exp \left\{ -\frac{2t^2}{\sum_{j=1}^{n} c_j^2} \right\}. \tag{6}$$</div><p></p>
+</p><div class="mathjax-exps">$$P \left\{ \left| \textcolor{green}{\sum_{j=1}^{n} D_j} \right| \geq t\right\} \leq 2 \exp \left\{ -\frac{2t^2}{\sum_{j=1}^{n} c_j^2} \right\}. \tag{6}$$</div><p></p>
 <p><strong>Note:</strong> <span class="mathjax-exps">$D_j$</span> satisfies the following properties:</p>
 <ol>
 <li>
@@ -1013,10 +1013,10 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 <p>Noting that <span class="mathjax-exps">$L_j \leq D_j \leq U_j$</span> a.s. and also that <span class="mathjax-exps">$L_j$</span> and <span class="mathjax-exps">$U_j$</span> are only random through <span class="mathjax-exps">$X_1^{j-1}$</span>, we see that <span class="mathjax-exps">$D_j | X_1^{j-1}$</span> is sub-Gaussian with parameter <span class="mathjax-exps">$\sigma_j^2 = \frac{c_j^2}{4}$</span>, in the sense that<br>
 </p><div class="mathjax-exps">$$E\left[ \exp(\lambda D_j) | X_1^{j-1} \right] \leq \exp \left( \frac{\lambda^2 c_j^2}{8} \right). \tag{$\bigstar$}$$</div><p></p>
 <p>Applying this result when <span class="mathjax-exps">$j=n$</span> yields that<br>
-</p><div class="mathjax-exps">$$\begin{align*}     E \left[ \exp \left( \lambda \green{\sum_{j=1}^{n} D_j} \right) \right] &amp;= E \left[ E \left( \exp \left\{ \lambda \left. \sum_{j=1}^{n} D_j \right\} \right| X_1^{n-1} \right) \right] \\         &amp;= E \left[ \exp \left\{ \lambda \sum_{j=1}^{n} D_j \right\} E \left( \exp \{ \lambda D_n \} | X_1^{n-1} \right) \right] \\         &amp;\leq \exp \left( \frac{\lambda^2 c_n^2}{8} \right) E \left[ \exp \left\{ \lambda \sum_{j=1}^{n-1} D_j \right\} \right]. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     E \left[ \exp \left( \lambda \textcolor{green}{\sum_{j=1}^{n} D_j} \right) \right] &amp;= E \left[ E \left( \exp \left\{ \lambda \left. \sum_{j=1}^{n} D_j \right\} \right| X_1^{n-1} \right) \right] \\         &amp;= E \left[ \exp \left\{ \lambda \sum_{j=1}^{n} D_j \right\} E \left( \exp \{ \lambda D_n \} | X_1^{n-1} \right) \right] \\         &amp;\leq \exp \left( \frac{\lambda^2 c_n^2}{8} \right) E \left[ \exp \left\{ \lambda \sum_{j=1}^{n-1} D_j \right\} \right]. \end{align*}$$</div><p></p>
 <p>Iterating this argument shows that<br>
-</p><div class="mathjax-exps">$$E \left[ \exp \left( \lambda \green{\sum_{j=1}^{n} D_j} \right) \right] \leq \exp \left( \frac{\lambda^2 \sum_{j=1}^{n} c_j^2}{8} \right).$$</div><p></p>
-<p>Hence, we've shown that <span class="mathjax-exps">$\sum_{j=1}^{n} D_j$</span> is sub-Gaussian with parameter <span class="mathjax-exps">$\frac{\sum_{j=1}^{n} c_j^2}{4}$</span>. The result in the lemma follows by applying Chernoff twice, once to bound the probability of <span class="mathjax-exps">$\left\{ \green{\sum_{j=1}^{n} D_j} \geq t \right\}$</span> and again to bound that of <span class="mathjax-exps">$\left\{ \green{\sum_{j=1}^{n} D_j} \geq -t \right\}$</span>.</p>
+</p><div class="mathjax-exps">$$E \left[ \exp \left( \lambda \textcolor{green}{\sum_{j=1}^{n} D_j} \right) \right] \leq \exp \left( \frac{\lambda^2 \sum_{j=1}^{n} c_j^2}{8} \right).$$</div><p></p>
+<p>Hence, we've shown that <span class="mathjax-exps">$\sum_{j=1}^{n} D_j$</span> is sub-Gaussian with parameter <span class="mathjax-exps">$\frac{\sum_{j=1}^{n} c_j^2}{4}$</span>. The result in the lemma follows by applying Chernoff twice, once to bound the probability of <span class="mathjax-exps">$\left\{ \textcolor{green}{\sum_{j=1}^{n} D_j} \geq t \right\}$</span> and again to bound that of <span class="mathjax-exps">$\left\{ \textcolor{green}{\sum_{j=1}^{n} D_j} \geq -t \right\}$</span>.</p>
 </div>
 <br>
 <p></p>
@@ -1078,9 +1078,9 @@ Suppose that <span class="mathjax-exps">$X_1,X_2,\dots, X_n$</span> are independ
 <br>
 <p><big><strong>How can we construct <span class="mathjax-exps">$\hat{\theta}?$</span></strong></big><br>
 If we had access to <span class="mathjax-exps">$P$</span>, then we can find <span class="mathjax-exps">$\theta_0$</span> by simply solving<br>
-</p><div class="mathjax-exps">$$\text{minimize}\; \blue{P}\ell(\theta) \\ \text{subject to } \theta\in\Theta.$$</div><p></p>
+</p><div class="mathjax-exps">$$\text{minimize}\; \textcolor{blue}{P}\ell(\theta) \\ \text{subject to } \theta\in\Theta.$$</div><p></p>
 <p>Since we don't know <span class="mathjax-exps">$P$</span>, in practice we'll replace it by an estimate: the empirical distribution <span class="mathjax-exps">$P_n$</span>. So, our <span class="mathjax-exps">$\textcolor{blue}{\underline{\text{empirical risk minimizer}}}$</span> <span class="mathjax-exps">$\hat{\theta}$</span> is a solution to<br>
-</p><div class="mathjax-exps">$$\text{minimize}\; \blue{P_n}\ell(\theta) \\ \text{subject to } \theta\in\Theta,$$</div><p></p>
+</p><div class="mathjax-exps">$$\text{minimize}\; \textcolor{blue}{P_n}\ell(\theta) \\ \text{subject to } \theta\in\Theta,$$</div><p></p>
 <p>where <span class="mathjax-exps">${P_n}\ell(\theta)$</span> is called the <span class="mathjax-exps">$\textcolor{blue}{\text{``empirical risk"}}$</span>.</p>
 <br>
 <h3 id="relation-to-m-estimation">Relation to M-estimation </h3>
@@ -1142,10 +1142,10 @@ If we had access to <span class="mathjax-exps">$P$</span>, then we can find <spa
 <p>We now provide a template for analyzing<br>
 </p><div class="mathjax-exps">$$\text{Reg}(\hat{\theta}) := P\ell(\hat{\theta}) - P\ell(\theta_0)$$</div><p></p>
 <p>when <span class="mathjax-exps">$\hat{\theta}$</span> is an ERM.<br>
-</p><div class="mathjax-exps">$$\begin{align*}     (0\leq ) \text{ Reg}(\hat{\theta}) &amp;:= P\ell(\hat{\theta}) - P\ell(\theta_0) \\         &amp;\leq P\ell(\hat{\theta}) - P\ell(\theta_0) + \underbrace{P_n \ell(\theta_0) - P_n\ell(\hat{\theta})}_{\purple{\geq 0}} \tag*{$\purple{(\hat{\theta} \text{ is an ERM})}$} \\         &amp;= (P_n - P) [\ell(\theta_0)-\ell(\hat{\theta})] \\         &amp;\leq \left|(P_n-P) \ell(\theta_0)\right| + \left|(P_n-P)\ell(\hat{\theta})\right| \tag*{$\purple{(\text{triangle ineq.})}$} \\         &amp;\leq 2\sup_{\theta\in\Theta} \left| (P_n - P) \ell(\theta) \right| \tag*{$\purple{(\theta_0, \hat{\theta} \in \Theta)}$} \\         &amp;= 2\sup_{f\in\mathcal{F}} |(P_n - P)f|, \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     (0\leq ) \text{ Reg}(\hat{\theta}) &amp;:= P\ell(\hat{\theta}) - P\ell(\theta_0) \\         &amp;\leq P\ell(\hat{\theta}) - P\ell(\theta_0) + \underbrace{P_n \ell(\theta_0) - P_n\ell(\hat{\theta})}_{\textcolor{purple}{\geq 0}} \tag*{$\textcolor{purple}{(\hat{\theta} \text{ is an ERM})}$} \\         &amp;= (P_n - P) [\ell(\theta_0)-\ell(\hat{\theta})] \\         &amp;\leq \left|(P_n-P) \ell(\theta_0)\right| + \left|(P_n-P)\ell(\hat{\theta})\right| \tag*{$\textcolor{purple}{(\text{triangle ineq.})}$} \\         &amp;\leq 2\sup_{\theta\in\Theta} \left| (P_n - P) \ell(\theta) \right| \tag*{$\textcolor{purple}{(\theta_0, \hat{\theta} \in \Theta)}$} \\         &amp;= 2\sup_{f\in\mathcal{F}} |(P_n - P)f|, \end{align*}$$</div><p></p>
 <p>where <span class="mathjax-exps">$\mathcal{F}:= \{ x\mapsto \ell(x,\theta) : \theta\in\Theta \}$</span>.</p>
 <p>We've shown that<br>
-</p><div class="mathjax-exps">$$0\leq \text{Reg}(\hat{\theta}) \leq 2 \underbrace{\sup_{f\in\mathcal{F}} |(P_n-P)f|}_{\blue{=: \Vert P_n-P \Vert_{\mathcal{F}}}}$$</div><p></p>
+</p><div class="mathjax-exps">$$0\leq \text{Reg}(\hat{\theta}) \leq 2 \underbrace{\sup_{f\in\mathcal{F}} |(P_n-P)f|}_{\textcolor{blue}{=: \Vert P_n-P \Vert_{\mathcal{F}}}}$$</div><p></p>
 <br>
 <h3 id="rademacher-complexity">Rademacher Complexity </h3>
 <ul>
@@ -1176,7 +1176,7 @@ If we had access to <span class="mathjax-exps">$P$</span>, then we can find <spa
 <li>Let <span class="mathjax-exps">$P_n'$</span> denote the empirical distribution of <span class="mathjax-exps">$X_1',X_2',\dots,X_n'$</span>.</li>
 </ul>
 <p>We have that<br>
-</p><div class="mathjax-exps">$$\begin{align*}     E\Vert P_n - P \Vert_{\mathcal{F}} &amp;= E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} f(X_i) - E_P[f(X_i')] \right| \right] \\         &amp;= E \left\{ \left| \sup_{f\in\mathcal{F}} E \left[ \frac{1}{n} \sum_{i=1}^{n} \{ f(X_i) - f(X_i') \} | X_1^n \right] \right| \right\} \tag*{\purple{(\text{linearity of expectation})}} \\         &amp;\leq E \left\{ E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} \{ f(X_i) - f(X_i') \} \right| X_1^n \right] \right\} \\         &amp;= E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} \{ f(X_i) - f(X_i') \} \right| \right]. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     E\Vert P_n - P \Vert_{\mathcal{F}} &amp;= E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} f(X_i) - E_P[f(X_i')] \right| \right] \\         &amp;= E \left\{ \left| \sup_{f\in\mathcal{F}} E \left[ \frac{1}{n} \sum_{i=1}^{n} \{ f(X_i) - f(X_i') \} | X_1^n \right] \right| \right\} \tag*{\textcolor{purple}{(\text{linearity of expectation})}} \\         &amp;\leq E \left\{ E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} \{ f(X_i) - f(X_i') \} \right| X_1^n \right] \right\} \\         &amp;= E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} \{ f(X_i) - f(X_i') \} \right| \right]. \end{align*}$$</div><p></p>
 <p>Let <span class="mathjax-exps">$\varepsilon_1,\dots,\varepsilon_n \stackrel{iid}{\sim} \text{Rademacher}$</span> that are independent <span class="mathjax-exps">$X_1,X_2,\dots,X_n, X_1',X_2',\dots,X_n'$</span>. Since <span class="mathjax-exps">$X_1,X_2,\dots,X_n,X_1',X_2',\dots,X_n'\stackrel{iid}{\sim} P$</span>, we can continue the above as<br>
 </p><div class="mathjax-exps">$$\begin{align*}     &amp;= E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} \varepsilon_i \left\{ f(X_i) - f(X_i') \right\} \right| \right] \\     &amp;\leq E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} \varepsilon_i f(X_i) \right| \right] + E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} \varepsilon_i f(X_i') \right| \right]\\     &amp;= 2 E \left[ \sup_{f\in\mathcal{F}} \left| \frac{1}{n} \sum_{i=1}^{n} \varepsilon_i f(X_i) \right| \right]. \end{align*}$$</div><p></p>
 <p>To write this more cleanly, we'll define the <span class="mathjax-exps">$\textcolor{blue}{\text{Rademacher process}}$</span> <span class="mathjax-exps">$R_n: \mathcal{F}\to\mathbb{R}$</span> as<br>
@@ -1306,26 +1306,26 @@ If we had access to <span class="mathjax-exps">$P$</span>, then we can find <spa
 </p><div class="mathjax-exps">$$E\Vert P_n - P \Vert_\mathcal{F} = O \left( \sqrt{\frac{\log(n)}{n}} \right).$$</div><p></p>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#aa46e0; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Lemma (Finite class lemma).</strong> If <span class="mathjax-exps">$\mathcal{F}$</span> is a class <span class="mathjax-exps">$\mathcal{X} \to [-1,1]$</span> then<br>
-</p><div class="mathjax-exps">$$\blue{E\Vert R_n \Vert_{\mathcal{F}} \leq \sqrt{\frac{2\log(2E[|F_{x_1^n}|])}{n}}}, \tag*{$\blue{(1)}$},$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{blue}{E\Vert R_n \Vert_{\mathcal{F}} \leq \sqrt{\frac{2\log(2E[|F_{x_1^n}|])}{n}}}, \tag*{$\textcolor{blue}{(1)}$},$$</div><p></p>
 <p>where <span class="mathjax-exps">$\mathcal{F}_{x_1^n} := \left\{ (f(X_1), f(X_2), \dots, f(X_n)): f\in\mathcal{F} \right\}$</span>d.<br>
 <br></p>
 <p><strong>Proof.</strong> In what follows, we'll establish that, for <span class="mathjax-exps">$P$</span>-almost all <span class="mathjax-exps">$x_1^n\in\mathcal{X}^n$</span>,<br>
-</p><div class="mathjax-exps">$$E \left[ \Vert R_n \Vert_{\mathcal{F}} \mid X_1^n = x_1^n \right] \leq \sqrt{\frac{2\log(2|F_{x_1^n}|)}{n}}. \tag*{$\orange{(2)}$}.$$</div><p></p>
-<p>This will yield <span class="mathjax-exps">$\blue{(1)}$</span> after integrating both sides against <span class="mathjax-exps">$P^n$</span> and applying Jensen's inequality.</p>
-<p>We now establish <span class="mathjax-exps">$\orange{(2)}$</span>. For <span class="mathjax-exps">$z\in[-1,1]^n$</span>, we'll let <span class="mathjax-exps">$\langle \varepsilon, z \rangle = \sum_{j=1}^{n} \varepsilon_j z_j$</span>. Let<br>
-</p><div class="mathjax-exps">$$\mathcal{Z}_{x_1^n} = \mathcal{F}_{x_1^n} \;\bigcup \underbrace{(-\mathcal{F}_{x_1^n})}_{\purple{:= \left\{ -z: z\in\mathcal{F}_{x_1^n}\right\}}}.$$</div><p></p>
+</p><div class="mathjax-exps">$$E \left[ \Vert R_n \Vert_{\mathcal{F}} \mid X_1^n = x_1^n \right] \leq \sqrt{\frac{2\log(2|F_{x_1^n}|)}{n}}. \tag*{$\textcolor{orange}{(2)}$}.$$</div><p></p>
+<p>This will yield <span class="mathjax-exps">$\textcolor{blue}{(1)}$</span> after integrating both sides against <span class="mathjax-exps">$P^n$</span> and applying Jensen's inequality.</p>
+<p>We now establish <span class="mathjax-exps">$\textcolor{orange}{(2)}$</span>. For <span class="mathjax-exps">$z\in[-1,1]^n$</span>, we'll let <span class="mathjax-exps">$\langle \varepsilon, z \rangle = \sum_{j=1}^{n} \varepsilon_j z_j$</span>. Let<br>
+</p><div class="mathjax-exps">$$\mathcal{Z}_{x_1^n} = \mathcal{F}_{x_1^n} \;\bigcup \underbrace{(-\mathcal{F}_{x_1^n})}_{\textcolor{purple}{:= \left\{ -z: z\in\mathcal{F}_{x_1^n}\right\}}}.$$</div><p></p>
 <p>For any <span class="mathjax-exps">$\lambda&gt;0$</span>,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \exp \left\{ \lambda E \left[ \sup_{f\in\mathcal{F}} | \langle \varepsilon, f(x_1^n) \rangle \right] \right\} &amp;= \exp \left\{ \lambda E \left[ \sup_{z\in\mathcal{Z}_{x_1^n}} \langle \varepsilon, z \rangle \right] \right\} \tag*{$\purple{|a| = \max\{ -a,a \}}$} \\         &amp;\leq E \left[ \exp \left\{ \lambda \sup_{z\in\mathcal{Z}_{x_1^n}} \langle \varepsilon, z \rangle \right\} \right] \tag*{$\purple{\text{Jensen's inequality}}$} \\         &amp;= E \left[ \sup_{z\in\mathcal{Z}_{x_1^n}} \exp \left\{ \lambda \langle \varepsilon, z \rangle \right\} \right] \tag*{$\purple{\text{monotonicity of } \exp\{ \lambda \, \cdot \}}$} \\         &amp;\leq \sum_{z\in\mathcal{Z}_{x_1^n}} \underbrace{E \left[ \exp \{ \lambda \langle \varepsilon, z \rangle \} \right]}_{\purple{\text{MGF of } \langle \varepsilon, z \rangle}!} \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \exp \left\{ \lambda E \left[ \sup_{f\in\mathcal{F}} | \langle \varepsilon, f(x_1^n) \rangle \right] \right\} &amp;= \exp \left\{ \lambda E \left[ \sup_{z\in\mathcal{Z}_{x_1^n}} \langle \varepsilon, z \rangle \right] \right\} \tag*{$\textcolor{purple}{|a| = \max\{ -a,a \}}$} \\         &amp;\leq E \left[ \exp \left\{ \lambda \sup_{z\in\mathcal{Z}_{x_1^n}} \langle \varepsilon, z \rangle \right\} \right] \tag*{$\textcolor{purple}{\text{Jensen's inequality}}$} \\         &amp;= E \left[ \sup_{z\in\mathcal{Z}_{x_1^n}} \exp \left\{ \lambda \langle \varepsilon, z \rangle \right\} \right] \tag*{$\textcolor{purple}{\text{monotonicity of } \exp\{ \lambda \, \cdot \}}$} \\         &amp;\leq \sum_{z\in\mathcal{Z}_{x_1^n}} \underbrace{E \left[ \exp \{ \lambda \langle \varepsilon, z \rangle \} \right]}_{\textcolor{purple}{\text{MGF of } \langle \varepsilon, z \rangle}!} \end{align*}$$</div><p></p>
 <p>Because <span class="mathjax-exps">$\varepsilon_i z_i$</span> is a random variable bounded in <span class="mathjax-exps">$[-1,1]$</span>, it is sub-Gaussian with parameter <span class="mathjax-exps">$1$</span>. Hence, the iid sum <span class="mathjax-exps">$\langle \varepsilon, z \rangle$</span> is sub-Gaussian with parameter <span class="mathjax-exps">$n$</span>.</p>
 <p>Plugging this into the above, we have<br>
 </p><div class="mathjax-exps">$$\begin{align*}     \exp \left\{ \lambda E \left[ \sup_{f\in\mathcal{F}} \left| \langle \varepsilon, f(x_1^n) \rangle \right| \right] \right\} &amp;\leq \sum_{z\in\mathcal{Z}_{x_1^n}} \exp \left( \frac{\lambda^2 n}{2} \right) \\         &amp;= \left| \mathcal{Z}_{x_1^n} \right| \exp \left( \frac{\lambda^2 n}{2} \right). \end{align*}$$</div><p></p>
 <p>Hence,<br>
 </p><div class="mathjax-exps">$$E \left[ \sup_{f\in\mathcal{F}} \left| \langle \varepsilon, f(x_1^n) \rangle \right| \right] \leq \frac{\log \left| \mathcal{Z}_{x_1^n} \right|}{\lambda} + \frac{\lambda_n}{2}.$$</div><p></p>
-<p>Plugging in <span class="mathjax-exps">$\lambda = \sqrt{\frac{2\log \left| \mathcal{Z}_{x_1^n}\right|}{n}}$</span> and using that <span class="mathjax-exps">$\left| \mathcal{Z}_{x_1^n} \right| \leq 2 \left| \mathcal{F}_{x_1^n} \right|$</span> gives <span class="mathjax-exps">$\orange{(2)}$</span>.</p>
+<p>Plugging in <span class="mathjax-exps">$\lambda = \sqrt{\frac{2\log \left| \mathcal{Z}_{x_1^n}\right|}{n}}$</span> and using that <span class="mathjax-exps">$\left| \mathcal{Z}_{x_1^n} \right| \leq 2 \left| \mathcal{F}_{x_1^n} \right|$</span> gives <span class="mathjax-exps">$\textcolor{orange}{(2)}$</span>.</p>
 </div>
 <br>
 <p>By the above lemma and the definition of the growth function, when <span class="mathjax-exps">$\mathcal{F}$</span> consists of boolean-valued functions,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     E\Vert P_n - P \Vert_\mathcal{F} &amp;\leq 2 E \Vert R_n \Vert_{\mathcal{F}} \\         &amp;\leq 2 \sqrt{ \frac{2\log (2 E[|\mathcal{F}_{x_1^n}])}{n}} \\         &amp;\leq 2 \sqrt{\frac{2\log\left(2\sup_{x_1^n} |\mathcal{F}_{x_1^n}|\right)}{n}} \hspace{2em} \blue{\text{where } \Pi_{\mathcal{F}}(n) = \sup_{x_1^n} |\mathcal{F}_{x_1^n}|} \\         &amp;= 2 \sqrt{\frac{2\log(2\Pi_\mathcal{F}(n))}{n}}. \tag*{$\red{(3)}$} \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     E\Vert P_n - P \Vert_\mathcal{F} &amp;\leq 2 E \Vert R_n \Vert_{\mathcal{F}} \\         &amp;\leq 2 \sqrt{ \frac{2\log (2 E[|\mathcal{F}_{x_1^n}])}{n}} \\         &amp;\leq 2 \sqrt{\frac{2\log\left(2\sup_{x_1^n} |\mathcal{F}_{x_1^n}|\right)}{n}} \hspace{2em} \textcolor{blue}{\text{where } \Pi_{\mathcal{F}}(n) = \sup_{x_1^n} |\mathcal{F}_{x_1^n}|} \\         &amp;= 2 \sqrt{\frac{2\log(2\Pi_\mathcal{F}(n))}{n}}. \tag*{$\textcolor{red}{(3)}$} \end{align*}$$</div><p></p>
 <p>If <span class="mathjax-exps">$\Pi_\mathcal{F}(n) = 2^n$</span>, this bound is trivial. But if <span class="mathjax-exps">$n&gt;VC(\mathcal{F})$</span>, then <span class="mathjax-exps">$\Pi_\mathcal{F}(n)&lt;2^n$</span>. In fact, it turns out that <span class="mathjax-exps">$\Pi_{\mathcal{F}}(n)$</span> will be <strong>much</strong> smaller than <span class="mathjax-exps">$2^n$</span>!</p>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#aa46e0; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Lemma (Sauer's lemma).</strong> Fix <span class="mathjax-exps">$d\geq VC(\mathcal{F})$</span>. It holds that<br>
@@ -1334,7 +1334,7 @@ If we had access to <span class="mathjax-exps">$P$</span>, then we can find <spa
 </p><div class="mathjax-exps">$$\Pi_\mathcal{F}(n) \leq \begin{cases}     2^n, &amp; n\leq d \\     \left( \frac{e}{d} \right)^d n^d, &amp; n&gt;d. \end{cases}$$</div><p></p>
 </div>
 <br>
-<p>By <span class="mathjax-exps">$\red{(3)}$</span>, the above implies that, if <span class="mathjax-exps">$n&gt;d\geq VC(\mathcal{F})$</span> and <span class="mathjax-exps">$\mathcal{F}$</span> consists of boolean-valued functions, then<br>
+<p>By <span class="mathjax-exps">$\textcolor{red}{(3)}$</span>, the above implies that, if <span class="mathjax-exps">$n&gt;d\geq VC(\mathcal{F})$</span> and <span class="mathjax-exps">$\mathcal{F}$</span> consists of boolean-valued functions, then<br>
 </p><div class="mathjax-exps">$$\begin{align*}     E \Vert P_n - P\Vert_\mathcal{F} &amp;\leq 2 \sqrt{\frac{2\log(2) + 2d\log\left( \frac{e}{d} \cdot n \right)}{n}} \\         &amp;= O \left( \sqrt{\frac{\log(n)}{n}} \right). \end{align*}$$</div><p></p>
 <p><strong>Some things to note:</strong></p>
 <ul>
@@ -1374,7 +1374,7 @@ If we had access to <span class="mathjax-exps">$P$</span>, then we can find <spa
 <p><strong>Claim:</strong> <span class="mathjax-exps">$N(\varepsilon, \mathcal{F}, \Vert \cdot \Vert_{\mathcal{F}}) \leq N\left( \frac{\varepsilon}{L}, B, \Vert \cdot \Vert_B \right)$</span>.</p>
 <br>
 <p><strong>Proof.</strong> Let <span class="mathjax-exps">$\{ \beta_j \}_{j=1}^{n}$</span> denote a minimal <span class="mathjax-exps">$\frac{\varepsilon}{L}$</span> cover of <span class="mathjax-exps">$B$</span>, so that <span class="mathjax-exps">$n=N\left( \frac{\varepsilon}{L}, B, \Vert \cdot \Vert_B \right)$</span>. We'll show that <span class="mathjax-exps">$\{ f(\cdot, \beta_j) \}_{j=1}^{n}$</span> is an <span class="mathjax-exps">$\varepsilon$</span>-cover of <span class="mathjax-exps">$\mathcal{F}$</span>.</p>
-<p>Fix <span class="mathjax-exps">$g\in\mathcal{F}$</span> and let <span class="mathjax-exps">$\beta\in B$</span> be such that <span class="mathjax-exps">$g(\cdot) = f(\cdot,\beta)$</span>. Let <span class="mathjax-exps">$\beta_j$</span> be such that <span class="mathjax-exps">$\Vert \beta_j - \beta \Vert_B \leq \frac{\varepsilon}{L}$</span>. Combining this with the <span class="mathjax-exps">$\blue{\text{Lipschitz-condition}}$</span> gives<br>
+<p>Fix <span class="mathjax-exps">$g\in\mathcal{F}$</span> and let <span class="mathjax-exps">$\beta\in B$</span> be such that <span class="mathjax-exps">$g(\cdot) = f(\cdot,\beta)$</span>. Let <span class="mathjax-exps">$\beta_j$</span> be such that <span class="mathjax-exps">$\Vert \beta_j - \beta \Vert_B \leq \frac{\varepsilon}{L}$</span>. Combining this with the <span class="mathjax-exps">$\textcolor{blue}{\text{Lipschitz-condition}}$</span> gives<br>
 </p><div class="mathjax-exps">$$\begin{align*}     \Vert f(\cdot, \beta) - f(\cdot, \beta_j) \Vert_{\mathcal{F}} &amp;\leq L \Vert \beta-\beta_j \Vert_B \\         &amp;\leq L \cdot \frac{\varepsilon}{L} \\         &amp;= \varepsilon. \end{align*}$$</div><p></p>
 </div>
 <br>
@@ -1443,25 +1443,25 @@ If we had access to <span class="mathjax-exps">$P$</span>, then we can find <spa
 <br>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#aa46e0; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Lemma (Finite class lemma).</strong> If <span class="mathjax-exps">$\{ X_\theta: \theta\in T \}$</span> is sub-Gaussian with respect to <span class="mathjax-exps">$d$</span> and <span class="mathjax-exps">$A\subseteq T\times T$</span>, then<br>
-</p><div class="mathjax-exps">$$E \left[ \max_{(\theta,\theta') \in A} (X_\theta - X_{\theta'}) \right] \leq \sqrt{2\log |A|} \underbrace{{\max_{(\theta,\theta')\in A} d(\theta, \theta')}}_{\purple{\text{``the diameter of } A "}}$$</div><p></p>
+</p><div class="mathjax-exps">$$E \left[ \max_{(\theta,\theta') \in A} (X_\theta - X_{\theta'}) \right] \leq \sqrt{2\log |A|} \underbrace{{\max_{(\theta,\theta')\in A} d(\theta, \theta')}}_{\textcolor{purple}{\text{``the diameter of } A "}}$$</div><p></p>
 </div>
 <br>
 <div style="border-spacing:0px; border-width:1.5px; border-style:solid; border-color:#43b7d1; padding: 0.75em; padding-bottom:0em; page-break-inside:avoid;">
 <p><strong>Theorem (one-step discretization bound).</strong> Let <span class="mathjax-exps">$\{ X_\theta: \theta\in T \}$</span> denote a mean zero sub-Gaussian process with respect to <span class="mathjax-exps">$d$</span>. Let <span class="mathjax-exps">$D:= \sup_{\theta,\theta'\in T} d(\theta, \theta')$</span> denote the diameter of <span class="mathjax-exps">$T$</span>. For any <span class="mathjax-exps">$\varepsilon&gt;0$</span>,<br>
-</p><div class="mathjax-exps">$$E \left[ \sup_{\theta\in T} X_\theta \right] \leq 2 E \left[ \pink{\sup_{(\theta,\theta')\in T: d(\theta,\theta')\leq \varepsilon} (X_\theta - X_{\theta'})} \right] + \blue{2D \sqrt{\log N(\varepsilon, T, d)}}.$$</div><p></p>
-<p>Note that as <span class="mathjax-exps">$\blue{\varepsilon \downarrow 0}$</span>, we have<br>
-</p><div class="mathjax-exps">$$\displaystyle \pink{\sup_{(\theta,\theta')\in T: d(\theta,\theta')\leq \varepsilon} (X_\theta - X_{\theta'})} \;\;\;{\large \searrow}$$</div><p></p>
+</p><div class="mathjax-exps">$$E \left[ \sup_{\theta\in T} X_\theta \right] \leq 2 E \left[ \textcolor{pink}{\sup_{(\theta,\theta')\in T: d(\theta,\theta')\leq \varepsilon} (X_\theta - X_{\theta'})} \right] + \textcolor{blue}{2D \sqrt{\log N(\varepsilon, T, d)}}.$$</div><p></p>
+<p>Note that as <span class="mathjax-exps">$\textcolor{blue}{\varepsilon \downarrow 0}$</span>, we have<br>
+</p><div class="mathjax-exps">$$\displaystyle \textcolor{pink}{\sup_{(\theta,\theta')\in T: d(\theta,\theta')\leq \varepsilon} (X_\theta - X_{\theta'})} \;\;\;{\large \searrow}$$</div><p></p>
 <p>and<br>
-</p><div class="mathjax-exps">$$\displaystyle \blue{2D \sqrt{\log N(\varepsilon, T, d)}}\;\;\;{\nearrow}$$</div><p></p>
+</p><div class="mathjax-exps">$$\displaystyle \textcolor{blue}{2D \sqrt{\log N(\varepsilon, T, d)}}\;\;\;{\nearrow}$$</div><p></p>
 <br>
 <p><strong>Proof.</strong> For any <span class="mathjax-exps">$\theta'\in T$</span>, the fact that <span class="mathjax-exps">$\{ X_\theta: \theta\in T \}$</span> is mean zero implies that<br>
-</p><div class="mathjax-exps">$$\begin{align*}     E \left[ \sup_{\theta\in T} X_\theta \right] &amp;= E \left[ \sup_{\theta\in T} (X_\theta - X_{\theta'}) \right] \\         &amp;\leq E \left[ \sup_{\theta,\theta'\in T} (\blue{X_\theta - X_{\theta'} }) \right]. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     E \left[ \sup_{\theta\in T} X_\theta \right] &amp;= E \left[ \sup_{\theta\in T} (X_\theta - X_{\theta'}) \right] \\         &amp;\leq E \left[ \sup_{\theta,\theta'\in T} (\textcolor{blue}{X_\theta - X_{\theta'} }) \right]. \end{align*}$$</div><p></p>
 <p>Let <span class="mathjax-exps">$T_1$</span> denote a minimal <span class="mathjax-exps">$\varepsilon$</span>-cover of <span class="mathjax-exps">$T$</span>. For any <span class="mathjax-exps">$\theta,\theta'\in T$</span>, there exist <span class="mathjax-exps">$\theta_1, \theta_1' \in T_1$</span> such that <span class="mathjax-exps">$d(\theta,\theta_1) \leq \varepsilon$</span> and <span class="mathjax-exps">$d(\theta', \theta_1') \leq \varepsilon$</span>. Observe that<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \blue {X_\theta - X_{\theta'}} &amp;= (X_\theta - X_{\theta_1}) - (X_{\theta'} - X_{\theta_1'}) + (X_{\theta_1} - X_{\theta_1'}) \\         &amp;\leq 2 \sup_{\theta_2,\theta_3\in T: d(\theta_2, \theta_3) \leq \varepsilon} (X_{\theta_2} - X_{\theta_3}) + \max_{(\theta_4, \theta_5)\in T_1\times T_1} (X_{\theta_4} - X_{\theta_5}). \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \textcolor{blue} {X_\theta - X_{\theta'}} &amp;= (X_\theta - X_{\theta_1}) - (X_{\theta'} - X_{\theta_1'}) + (X_{\theta_1} - X_{\theta_1'}) \\         &amp;\leq 2 \sup_{\theta_2,\theta_3\in T: d(\theta_2, \theta_3) \leq \varepsilon} (X_{\theta_2} - X_{\theta_3}) + \max_{(\theta_4, \theta_5)\in T_1\times T_1} (X_{\theta_4} - X_{\theta_5}). \end{align*}$$</div><p></p>
 <p>Combining the above two displays, we have,<br>
-</p><div class="mathjax-exps">$$E \left[ \sup_{\theta\in T} X_\theta \right] \leq 2 E \left[ \sup_{\theta_2, \theta_3\in T: d(\theta_2,\theta_3) \leq \varepsilon} (X_{\theta_2} - X_{\theta_3}) \right] + \underbrace{E \left[ \max_{(\theta_4, \theta_5)\in T_1\times T_1} (X_{\theta_4} - X_{\theta_5}) \right]}_{\red{(\bigstar)}}.$$</div><p></p>
+</p><div class="mathjax-exps">$$E \left[ \sup_{\theta\in T} X_\theta \right] \leq 2 E \left[ \sup_{\theta_2, \theta_3\in T: d(\theta_2,\theta_3) \leq \varepsilon} (X_{\theta_2} - X_{\theta_3}) \right] + \underbrace{E \left[ \max_{(\theta_4, \theta_5)\in T_1\times T_1} (X_{\theta_4} - X_{\theta_5}) \right]}_{\textcolor{red}{(\bigstar)}}.$$</div><p></p>
 <p>By the finite class lemma,<br>
-</p><div class="mathjax-exps">$$\begin{align*}     \red{(\bigstar)} &amp;\leq \left( 2 \log | T_1\times T_1| \right)^{1/2} D \\         &amp;= 2 \left( \log |T_1| \right)^{1/2} D \\         &amp;= 2 \sqrt{ \log N(\varepsilon, T, d)} D. \end{align*}$$</div><p></p>
+</p><div class="mathjax-exps">$$\begin{align*}     \textcolor{red}{(\bigstar)} &amp;\leq \left( 2 \log | T_1\times T_1| \right)^{1/2} D \\         &amp;= 2 \left( \log |T_1| \right)^{1/2} D \\         &amp;= 2 \sqrt{ \log N(\varepsilon, T, d)} D. \end{align*}$$</div><p></p>
 </div>
 <br>
 <p>We'll now use the one-step discretization bound to establish the following result:</p>
@@ -1487,7 +1487,7 @@ If we had access to <span class="mathjax-exps">$P$</span>, then we can find <spa
 <p><span style="color:blue;">  <b>Step 2:</b> Applying the one-step discretization bound to <span class="mathjax-exps">$\displaystyle E\left[ \sup_{\theta\in T} X_\theta \right]$</span>. </span><br>
 <br></p>
 <p>By that bound, for any <span class="mathjax-exps">$\varepsilon&gt;0$</span>,<br>
-</p><div class="mathjax-exps">$$\red{\boxed{E\left[ \sup_{\theta\in T} X_\theta \right] \leq  2 E \left[ \sup_{\theta,\theta'\in T: d(\theta,\theta')\leq \varepsilon} (X_\theta - X_{\theta'}) \right] + 2D \sqrt{\log N(\varepsilon, T, d)}}},$$</div><p></p>
+</p><div class="mathjax-exps">$$\textcolor{red}{\boxed{E\left[ \sup_{\theta\in T} X_\theta \right] \leq  2 E \left[ \sup_{\theta,\theta'\in T: d(\theta,\theta')\leq \varepsilon} (X_\theta - X_{\theta'}) \right] + 2D \sqrt{\log N(\varepsilon, T, d)}}},$$</div><p></p>
 <p>where <span class="mathjax-exps">$d$</span> is the Euclidean metric in this case.<br>
 <br></p>
 <p>In the remainder of our argument, we study the two terms on the right hand side.<br>

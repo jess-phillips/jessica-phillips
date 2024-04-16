@@ -550,7 +550,6 @@ observations based on a certain “label” when using
 five median listing prices by <code>neighbourhood</code>, then you could
 do something similar to below.</p>
 <pre><code>edibnb %&gt;%
-  drop_na() %&gt;%
   group_by(neighbourhood)
   </code></pre>
 <p>Additionally, you can add <code>head(5)</code> to your last line of

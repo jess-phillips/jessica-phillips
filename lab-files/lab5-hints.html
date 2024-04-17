@@ -588,9 +588,8 @@ neighborhoods. Then make your plot using this dataframe.</strong></p>
 the five neighborhoods with the heighest median nightly rate.</p>
 <pre class="r"><code>edibnb_top5_names &lt;- 
   edibnb %&gt;%
-    drop_na() %&gt;%
     group_by(neighbourhood) %&gt;%
-    summarize(median_price = median(price)) %&gt;%
+    summarize(median_price = median(price, na.rm = TRUE)) %&gt;%
     arrange(desc(median_price)) %&gt;%
     select(neighbourhood) %&gt;%
     head(5) %&gt;%
